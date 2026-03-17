@@ -42,224 +42,6 @@ img{display:block;max-width:100%;}
 .serif{font-family:'Cormorant Garamond',serif;}
 .f-display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:-.5px;}
 
-/* ══════════════════════════════════════════════
-   AMAZON-STYLE PRICE FONT
-   Amazon uses: Arial/sans-serif, bold, dark red
-   for main price. We replicate this exactly.
-══════════════════════════════════════════════ */
-:root {
-  --price-color: #B12704;        /* Amazon's exact price red */
-  --price-font: -apple-system, 'Segoe UI', Arial, sans-serif;
-  --price-symbol-size: 0.65em;   /* smaller ₹ symbol like Amazon */
-}
-[data-theme="dark"] {
-  --price-color: #FF8C69;        /* softer red for dark mode */
-}
-
-/* Card grid price — matches Amazon listing price */
-.pc-best {
-  font-family: var(--price-font) !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-  letter-spacing: -.3px;
-  line-height: 1.2;
-}
-.pc-best::first-letter {
-  font-size: var(--price-symbol-size);
-  vertical-align: super;
-  font-weight: 500;
-}
-
-/* Product modal big price */
-.pm-price {
-  font-family: var(--price-font) !important;
-  font-size: 28px !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-  letter-spacing: -.5px;
-  line-height: 1.1;
-  margin-bottom: 3px;
-}
-
-/* Store row prices */
-.pc-sp, .pm-sprice {
-  font-family: var(--price-font) !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-  letter-spacing: -.2px;
-}
-.pc-sp.top-p, .pm-sprice.best-p {
-  color: var(--price-color) !important;
-  font-size: 14px !important;
-}
-
-/* Wishlist price */
-.wi-price {
-  font-family: var(--price-font) !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-}
-
-/* Recently viewed price */
-.rc-mini-p {
-  font-family: var(--price-font) !important;
-  font-size: 13px !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-}
-
-/* Checkout price */
-.co-pprice {
-  font-family: var(--price-font) !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-}
-
-/* Autocomplete price */
-.ac-p {
-  font-family: var(--price-font) !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-}
-
-/* Save badge — Amazon green */
-.pc-save-badge {
-  background: #F0FFF4 !important;
-  color: #277843 !important;
-  border-color: rgba(39,120,67,.2) !important;
-  font-family: var(--price-font) !important;
-  font-weight: 600 !important;
-  font-size: 11px !important;
-}
-[data-theme="dark"] .pc-save-badge {
-  background: rgba(39,120,67,.15) !important;
-  color: #56C97B !important;
-}
-
-/* Order price in profile */
-.order-price {
-  font-family: var(--price-font) !important;
-  font-weight: 700 !important;
-  color: var(--price-color) !important;
-}
-
-/* Pro subscription price */
-.pro-price {
-  font-family: var(--price-font) !important;
-  font-weight: 800 !important;
-}
-
-/* Number class utility */
-.num {
-  font-family: var(--price-font) !important;
-  font-weight: 700 !important;
-}
-
-
-/* ── PROFILE PAGE ── */
-#profilePage{display:none;min-height:100vh;padding-bottom:80px;}
-#profilePage.active{display:block;}
-.prof-header{background:#0A0A08;padding:24px 32px;display:flex;align-items:center;gap:16px;}
-.prof-back{background:none;border:1px solid rgba(255,255,255,.15);border-radius:var(--rs);padding:6px 12px;font-size:12px;color:rgba(255,255,255,.6);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;}
-.prof-back:hover{border-color:var(--gold);color:var(--gold);}
-.prof-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:#FAFAF8;}
-.prof-body{max-width:900px;margin:0 auto;padding:28px 32px;display:grid;grid-template-columns:260px 1fr;gap:20px;}
-.prof-nav{display:flex;flex-direction:column;gap:4px;}
-.pnav-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--rs);cursor:pointer;font-size:13px;font-weight:500;color:var(--ink2);transition:all .2s;border:1px solid transparent;}
-.pnav-item:hover{background:var(--paper2);border-color:var(--border);}
-.pnav-item.on{background:var(--gold4);border-color:rgba(201,168,76,.2);color:var(--ink);}
-.pnav-item svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0;}
-.prof-content{background:var(--paper);border:1px solid var(--border);border-radius:var(--r);padding:24px;box-shadow:var(--sh);}
-.prof-section{display:none;}
-.prof-section.on{display:block;}
-.prof-sec-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
-.prof-avatar-row{display:flex;align-items:center;gap:16px;margin-bottom:24px;}
-.prof-avatar-big{width:68px;height:68px;border-radius:50%;background:var(--ink);color:var(--paper);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;display:flex;align-items:center;justify-content:center;}
-.prof-avatar-info{flex:1;}
-.prof-avatar-name{font-size:16px;font-weight:600;}
-.prof-avatar-email{font-size:12px;color:var(--ink3);margin-top:2px;}
-.prof-badge{display:inline-flex;align-items:center;gap:4px;background:var(--gold4);border:1px solid rgba(201,168,76,.25);border-radius:100px;padding:2px 9px;font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.3px;text-transform:uppercase;margin-top:5px;}
-.pf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
-.pf-field{display:flex;flex-direction:column;gap:4px;}
-.pf-label{font-size:11px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;}
-.pf-input{background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);padding:10px 13px;font-size:13px;color:var(--ink);font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;}
-.pf-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.07);}
-.pf-save{background:var(--ink);color:var(--paper);border:none;border-radius:var(--rs);padding:10px 22px;font-size:13px;font-weight:600;font-family:'DM Sans',sans-serif;margin-top:16px;transition:all .2s;}
-.pf-save:hover{background:var(--gold);color:#0A0A08;}
-.addr-card{background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
-.addr-card.default{border-color:rgba(201,168,76,.3);background:var(--gold4);}
-.addr-tag{font-size:10px;font-weight:700;color:var(--gold);background:rgba(201,168,76,.1);padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;display:inline-block;}
-.addr-text{font-size:13px;line-height:1.7;color:var(--ink2);}
-.addr-actions{display:flex;gap:6px;flex-shrink:0;}
-.addr-btn{background:none;border:1px solid var(--border);border-radius:var(--rs);padding:5px 10px;font-size:11px;font-weight:500;color:var(--ink3);cursor:pointer;transition:all .2s;}
-.addr-btn:hover{border-color:var(--gold);color:var(--gold);}
-.order-card{background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:10px;}
-.order-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.order-id{font-size:11px;font-weight:600;color:var(--ink3);}
-.order-status{font-size:10px;font-weight:700;padding:3px 8px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px;}
-.order-status.delivered{background:var(--grn2);color:var(--grn);}
-.order-status.processing{background:var(--blu2);color:var(--blu);}
-.order-item{display:flex;align-items:center;gap:12px;}
-.order-item img{width:48px;height:48px;object-fit:cover;border-radius:var(--rs);}
-.order-info{flex:1;}
-.order-name{font-size:13px;font-weight:500;margin-bottom:2px;}
-.order-meta{font-size:11px;color:var(--ink3);}
-.order-price{font-family:var(--price-font);font-size:14px;font-weight:600;color:var(--ink);}
-.alert-card{background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:12px 15px;margin-bottom:8px;display:flex;align-items:center;gap:12px;}
-.alert-ico{width:34px;height:34px;border-radius:50%;background:var(--gold4);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.alert-ico svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2;}
-.alert-info{flex:1;}
-.alert-name{font-size:13px;font-weight:500;}
-.alert-target{font-size:11px;color:var(--ink3);margin-top:2px;}
-.alert-del{background:none;border:none;color:var(--ink4);font-size:14px;cursor:pointer;padding:4px;}
-.alert-del:hover{color:var(--red2);}
-.pref-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
-.pref-row:last-child{border-bottom:none;}
-.pref-label{font-size:13px;font-weight:500;}
-.pref-sub{font-size:11px;color:var(--ink3);margin-top:2px;}
-.toggle{width:40px;height:22px;border-radius:100px;background:var(--border);position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;border:none;}
-.toggle.on{background:var(--grn);}
-.toggle::after{content:'';position:absolute;width:16px;height:16px;border-radius:50%;background:#fff;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
-.toggle.on::after{left:21px;}
-
-/* PRO PANEL */
-.pro-card{background:linear-gradient(135deg,#0A0A08 0%,#1A160A 100%);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:24px;margin-bottom:16px;}
-.pro-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:4px;}
-.pro-sub{font-size:12px;color:rgba(250,250,248,.5);margin-bottom:16px;}
-.pro-price{font-family:var(--price-font);font-size:28px;font-weight:600;color:#FAFAF8;margin-bottom:4px;}
-.pro-price span{font-size:14px;font-weight:400;color:rgba(250,250,248,.4);}
-.pro-features{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
-.pro-feat{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(250,250,248,.7);}
-.pro-feat::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
-.pro-btn{background:var(--gold);color:#0A0A08;border:none;border-radius:var(--rs);padding:12px 28px;font-size:14px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;width:100%;}
-.pro-btn:hover{background:var(--gold2);}
-.pro-active-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(39,174,96,.15);border:1px solid rgba(39,174,96,.25);border-radius:100px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--grn);margin-bottom:14px;}
-
-/* AI CHAT — Real Claude Integration */
-.aip-thinking{display:flex;gap:5px;padding:10px 13px;background:var(--paper2);border-radius:10px;align-self:flex-start;border:1px solid var(--border);}
-.aip-thinking span{width:6px;height:6px;border-radius:50%;background:var(--ink3);animation:dot 1.4s infinite;}
-.aip-thinking span:nth-child(2){animation-delay:.2s;}
-.aip-thinking span:nth-child(3){animation-delay:.4s;}
-@keyframes dot{0%,80%,100%{transform:scale(0.5);opacity:.4;}40%{transform:scale(1);opacity:1;}}
-
-/* MOBILE PROFILE */
-@media(max-width:768px){
-  .prof-body{grid-template-columns:1fr;padding:16px;}
-  .prof-nav{flex-direction:row;overflow-x:auto;scrollbar-width:none;gap:6px;padding-bottom:4px;}
-  .prof-nav::-webkit-scrollbar{display:none;}
-  .pnav-item{white-space:nowrap;flex-direction:column;gap:4px;padding:8px 12px;font-size:11px;}
-  .pnav-item svg{width:18px;height:18px;}
-  .prof-content{padding:16px;}
-  .pf-row{grid-template-columns:1fr;}
-  .prof-header{padding:16px;}
-}
-@media(max-width:1020px){
-  #bnav .bni[onclick*="showProfile"]{color:var(--gold)!important;}
-}
-
-
 /* ── LAYOUT ── */
 .page{display:none;}
 .page.active{display:block;}
@@ -493,7 +275,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 .stars{color:#C9A84C;font-size:11px;}
 .rcount{font-size:10px;color:var(--ink4);}
 .pc-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:3px;}
-.pc-best{font-size:20px;font-weight:700;color:var(--price-color);}
+.pc-best{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink);}
 .pc-orig{font-size:12px;color:var(--ink4);text-decoration:line-through;}
 .pc-save-badge{font-size:10px;font-weight:600;background:rgba(39,174,96,.1);color:var(--grn);padding:2px 6px;border-radius:3px;border:1px solid rgba(39,174,96,.15);}
 .pc-via{font-size:11px;color:var(--ink4);margin-bottom:10px;}
@@ -541,7 +323,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 .pm-cat{font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
 .pm-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.2;margin-bottom:10px;}
 .pm-rating{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13px;}
-.pm-price{font-size:28px;font-weight:700;color:var(--price-color);margin-bottom:3px;}
+.pm-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--ink);margin-bottom:3px;}
 .pm-incl{font-size:12px;color:var(--ink3);margin-bottom:14px;}
 
 /* AI trust box */
@@ -719,16 +501,8 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 /* MOBILE FILTER BTN */
 #mfBtn{display:none;position:fixed;bottom:68px;left:16px;z-index:250;background:#0A0A08;color:var(--gold);border:1px solid rgba(201,168,76,.3);border-radius:100px;padding:9px 18px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;letter-spacing:.3px;}
 
-/* LIVE SEARCH STYLES */
-.ac-search-live{background:var(--gold4);border-top:1px solid rgba(201,168,76,.2);}
-.ac-search-live:hover{background:var(--gold3)!important;}
-.ac-search-ico{font-size:18px;width:36px;text-align:center;flex-shrink:0;}
-#searchBackBar button:hover{background:var(--paper3)!important;}
-
 @media(max-width:1020px){
-  #searchBackBar{margin:0 0 12px;}
-}
-
+  .main-layout{flex-direction:column;padding:16px;}
   .sidebar{width:100%;display:none;}
   .banners{padding:16px;flex-direction:column;}
   .hero{padding:32px 18px;}
@@ -794,56 +568,16 @@ input[type=range]{width:100%;accent-color:var(--gold);}
       <span class="loc-change" onclick="toggleCountryPicker()">Change</span>
     </div>
     <select class="country-sel" id="countryPicker" onchange="setCountry(this.value)">
-      <option value="IN">🇮🇳 India (INR — ₹)</option>
-      <option value="US">🇺🇸 United States (USD — $)</option>
-      <option value="GB">🇬🇧 United Kingdom (GBP — £)</option>
-      <option value="EU">🇪🇺 Europe (EUR — €)</option>
-      <option value="AU">🇦🇺 Australia (AUD — A$)</option>
-      <option value="CA">🇨🇦 Canada (CAD — C$)</option>
-      <option value="JP">🇯🇵 Japan (JPY — ¥)</option>
-      <option value="AE">🇦🇪 UAE (AED — د.إ)</option>
-      <option value="SG">🇸🇬 Singapore (SGD — S$)</option>
-      <option value="BR">🇧🇷 Brazil (BRL — R$)</option>
-      <option value="CN">🇨🇳 China (CNY — ¥)</option>
-      <option value="DE">🇩🇪 Germany (EUR — €)</option>
-      <option value="FR">🇫🇷 France (EUR — €)</option>
-      <option value="IT">🇮🇹 Italy (EUR — €)</option>
-      <option value="ES">🇪🇸 Spain (EUR — €)</option>
-      <option value="NL">🇳🇱 Netherlands (EUR — €)</option>
-      <option value="SE">🇸🇪 Sweden (SEK — kr)</option>
-      <option value="NO">🇳🇴 Norway (NOK — kr)</option>
-      <option value="DK">🇩🇰 Denmark (DKK — kr)</option>
-      <option value="CH">🇨🇭 Switzerland (CHF — Fr)</option>
-      <option value="PL">🇵🇱 Poland (PLN — zł)</option>
-      <option value="RU">🇷🇺 Russia (RUB — ₽)</option>
-      <option value="ZA">🇿🇦 South Africa (ZAR — R)</option>
-      <option value="NG">🇳🇬 Nigeria (NGN — ₦)</option>
-      <option value="KE">🇰🇪 Kenya (KES — KSh)</option>
-      <option value="EG">🇪🇬 Egypt (EGP — £)</option>
-      <option value="SA">🇸🇦 Saudi Arabia (SAR — ﷼)</option>
-      <option value="TR">🇹🇷 Turkey (TRY — ₺)</option>
-      <option value="PK">🇵🇰 Pakistan (PKR — ₨)</option>
-      <option value="BD">🇧🇩 Bangladesh (BDT — ৳)</option>
-      <option value="LK">🇱🇰 Sri Lanka (LKR — Rs)</option>
-      <option value="NP">🇳🇵 Nepal (NPR — Rs)</option>
-      <option value="MY">🇲🇾 Malaysia (MYR — RM)</option>
-      <option value="TH">🇹🇭 Thailand (THB — ฿)</option>
-      <option value="ID">🇮🇩 Indonesia (IDR — Rp)</option>
-      <option value="PH">🇵🇭 Philippines (PHP — ₱)</option>
-      <option value="VN">🇻🇳 Vietnam (VND — ₫)</option>
-      <option value="KR">🇰🇷 South Korea (KRW — ₩)</option>
-      <option value="TW">🇹🇼 Taiwan (TWD — NT$)</option>
-      <option value="HK">🇭🇰 Hong Kong (HKD — HK$)</option>
-      <option value="NZ">🇳🇿 New Zealand (NZD — NZ$)</option>
-      <option value="MX">🇲🇽 Mexico (MXN — $)</option>
-      <option value="AR">🇦🇷 Argentina (ARS — $)</option>
-      <option value="CL">🇨🇱 Chile (CLP — $)</option>
-      <option value="CO">🇨🇴 Colombia (COP — $)</option>
-      <option value="PE">🇵🇪 Peru (PEN — S/)</option>
-      <option value="QA">🇶🇦 Qatar (QAR — ﷼)</option>
-      <option value="KW">🇰🇼 Kuwait (KWD — د.ك)</option>
-      <option value="IL">🇮🇱 Israel (ILS — ₪)</option>
-      <option value="NG2">🌍 Other (USD — $)</option>
+      <option value="IN">India (INR — ₹)</option>
+      <option value="US">United States (USD — $)</option>
+      <option value="GB">United Kingdom (GBP — £)</option>
+      <option value="EU">Europe (EUR — €)</option>
+      <option value="AU">Australia (AUD — A$)</option>
+      <option value="CA">Canada (CAD — C$)</option>
+      <option value="JP">Japan (JPY — ¥)</option>
+      <option value="AE">UAE (AED — د.إ)</option>
+      <option value="SG">Singapore (SGD — S$)</option>
+      <option value="BR">Brazil (BRL — R$)</option>
     </select>
 
     <!-- Tabs -->
@@ -907,21 +641,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 ═══════════════════════════════════════════ -->
 <div id="mainApp" class="page">
 
-  <!-- SETUP GUIDE — Only visible until affiliate tags are configured -->
-  <div id="setupGuide" style="background:linear-gradient(135deg,#1a0a00,#2a1500);border-bottom:1px solid rgba(201,168,76,.3);padding:14px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <div style="font-size:18px">⚙️</div>
-    <div style="flex:1">
-      <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:2px">OWNER SETUP — 3 steps to go fully live</div>
-      <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">
-        <strong style="color:#27AE60">✓ Step 1 — Amazon Affiliate: ACTIVE (pricetag03-21)</strong> &nbsp;|&nbsp;
-        <strong style="color:rgba(255,255,255,.75)">Step 2 — Flipkart:</strong> affiliate.flipkart.com → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">YOUR_FK_AFFID</code> &nbsp;|&nbsp;
-        <strong style="color:rgba(255,255,255,.75)">Step 3 — Razorpay:</strong> razorpay.com → Settings → API Keys → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">rzp_test_YOUR_KEY_HERE</code>
-      </div>
-    </div>
-    <button onclick="document.getElementById('setupGuide').style.display='none'" style="background:none;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;white-space:nowrap">Hide</button>
-  </div>
-
-
+  <!-- AI SYNC BAR -->
   <div id="aiBar">
     <div class="ai-dot"></div>
     <div class="ai-txt">AI database <span class="ai-live">live</span> — syncing <strong id="aiCount">54</strong> stores in real time</div>
@@ -956,7 +676,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
         <button class="nib" onclick="toggleTheme()" id="themeBtn" title="Theme">
           <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         </button>
-        <button class="nav-avatar" id="navAvatar" onclick="showProfile()">A</button>
+        <button class="nav-avatar" id="navAvatar" onclick="showToast('Profile settings coming soon')">A</button>
       </div>
     </div>
     <div class="nav-cats">
@@ -1003,9 +723,9 @@ input[type=range]{width:100%;accent-color:var(--gold);}
     <div class="promo-card gold-card">
       <div class="pc-text">
         <div class="pc-title">Price Tag Pro</div>
-        <div class="pc-sub">Unlimited alerts, hourly syncs, ad-free — $4/month</div>
+        <div class="pc-sub">Unlimited alerts, hourly syncs, ad-free — $3/month</div>
       </div>
-      <button class="pc-btn" onclick="showProfUpgrade()">Upgrade</button>
+      <button class="pc-btn" onclick="showToast('Pro plan launching soon')">Upgrade</button>
     </div>
     <div class="promo-card dark-card">
       <div class="pc-text">
@@ -1233,245 +953,19 @@ input[type=range]{width:100%;accent-color:var(--gold);}
     <button class="bni" onclick="document.getElementById('nsearch').focus()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search</button>
     <button class="bni" onclick="toggleAI()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>AI</button>
     <button class="bni" onclick="toggleWish()"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Wishlist</button>
-    <button class="bni" onclick="showProfile()"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</button>
+    <button class="bni" onclick="showToast('Profile coming soon')"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</button>
   </div>
 </nav>
 
-<!-- PROFILE PAGE -->
-<div id="profilePage">
-  <div class="prof-header">
-    <button class="prof-back" onclick="closeProfile()">← Back</button>
-    <div class="prof-title">My Account</div>
-    <div id="proNavBadge" style="display:none;margin-left:auto;"></div>
-  </div>
-
-  <div class="prof-body">
-    <!-- Left nav -->
-    <div class="prof-nav">
-      <div class="pnav-item on" onclick="showProfSec('account',this)">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        Account
-      </div>
-      <div class="pnav-item" onclick="showProfSec('addresses',this)">
-        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Addresses
-      </div>
-      <div class="pnav-item" onclick="showProfSec('orders',this)">
-        <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-        Orders
-      </div>
-      <div class="pnav-item" onclick="showProfSec('alerts',this)">
-        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        Alerts
-      </div>
-      <div class="pnav-item" onclick="showProfSec('pro',this)">
-        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        Pro
-      </div>
-      <div class="pnav-item" onclick="showProfSec('preferences',this)">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-        Preferences
-      </div>
-      <div class="pnav-item" onclick="doLogout()" style="margin-top:auto;color:var(--red2);">
-        <svg viewBox="0 0 24 24" style="stroke:var(--red2)"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
-        Sign out
-      </div>
-    </div>
-
-    <div class="prof-content">
-
-      <!-- ACCOUNT -->
-      <div class="prof-section on" id="sec-account">
-        <div class="prof-sec-title">Account Details</div>
-        <div class="prof-avatar-row">
-          <div class="prof-avatar-big" id="profAvatarBig">A</div>
-          <div class="prof-avatar-info">
-            <div class="prof-avatar-name" id="profName">User</div>
-            <div class="prof-avatar-email" id="profEmail">—</div>
-            <div id="profProBadge" style="display:none"><div class="prof-badge">★ Pro Member</div></div>
-          </div>
-        </div>
-        <div class="pf-row">
-          <div class="pf-field"><div class="pf-label">Full Name</div><input class="pf-input" id="pf-name" placeholder="Your full name"/></div>
-          <div class="pf-field"><div class="pf-label">Display Name</div><input class="pf-input" id="pf-display" placeholder="How we greet you"/></div>
-        </div>
-        <div class="pf-row">
-          <div class="pf-field"><div class="pf-label">Email</div><input class="pf-input" id="pf-email" type="email" placeholder="you@example.com"/></div>
-          <div class="pf-field"><div class="pf-label">Phone</div><input class="pf-input" id="pf-phone" placeholder="+91 98765 43210"/></div>
-        </div>
-        <div class="pf-row">
-          <div class="pf-field"><div class="pf-label">Date of Birth</div><input class="pf-input" id="pf-dob" type="date"/></div>
-          <div class="pf-field"><div class="pf-label">Gender</div>
-            <select class="pf-input" id="pf-gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Non-binary</option></select>
-          </div>
-        </div>
-        <button class="pf-save" onclick="saveProfile()">Save changes</button>
-      </div>
-
-      <!-- ADDRESSES -->
-      <div class="prof-section" id="sec-addresses">
-        <div class="prof-sec-title">Saved Addresses</div>
-        <div id="addrList">
-          <div class="addr-card default">
-            <div>
-              <div class="addr-tag">Default</div>
-              <div class="addr-text" id="defaultAddr">No address saved yet. Add one below.</div>
-            </div>
-            <div class="addr-actions">
-              <button class="addr-btn" onclick="showToast('Edit address')">Edit</button>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:16px">
-          <div class="prof-sec-title" style="font-size:15px;margin-bottom:12px">Add New Address</div>
-          <div class="pf-row">
-            <div class="pf-field"><div class="pf-label">Address Line 1</div><input class="pf-input" id="addr-line1" placeholder="House/Flat, Street"/></div>
-            <div class="pf-field"><div class="pf-label">City</div><input class="pf-input" id="addr-city" placeholder="City"/></div>
-          </div>
-          <div class="pf-row">
-            <div class="pf-field"><div class="pf-label">State</div><input class="pf-input" id="addr-state" placeholder="State / Region"/></div>
-            <div class="pf-field"><div class="pf-label">PIN / ZIP</div><input class="pf-input" id="addr-pin" placeholder="110001"/></div>
-          </div>
-          <button class="pf-save" onclick="saveAddress()">Save address</button>
-        </div>
-      </div>
-
-      <!-- ORDERS -->
-      <div class="prof-section" id="sec-orders">
-        <div class="prof-sec-title">Order History</div>
-        <div id="orderList"><div style="text-align:center;padding:40px;color:var(--ink3);font-size:13px">No orders yet. Place your first order from any product.</div></div>
-      </div>
-
-      <!-- ALERTS -->
-      <div class="prof-section" id="sec-alerts">
-        <div class="prof-sec-title">Price Alerts</div>
-        <div id="alertList"><div style="text-align:center;padding:40px;color:var(--ink3);font-size:13px">No alerts set. Open any product and tap "Set Alert".</div></div>
-      </div>
-
-      <!-- PRO -->
-      <div class="prof-section" id="sec-pro">
-        <div class="prof-sec-title">Price Tag Pro</div>
-        <div id="proActiveMsg" style="display:none">
-          <div class="pro-active-badge">✓ Pro Active — Thank you!</div>
-          <p style="font-size:13px;color:var(--ink2);margin-bottom:16px">Your Pro subscription is active. Enjoy unlimited alerts, hourly syncs, and all premium features.</p>
-        </div>
-        <div class="pro-card" id="proUpgradeCard">
-          <div class="pro-title">Price Tag Pro</div>
-          <div class="pro-sub">Everything you need to never overpay again</div>
-          <div class="pro-price">$4 <span>/ month</span></div>
-          <div class="pro-features">
-            <div class="pro-feat">Unlimited price alerts (free: 3 max)</div>
-            <div class="pro-feat">Hourly AI price sync (free: daily)</div>
-            <div class="pro-feat">Price history export to CSV</div>
-            <div class="pro-feat">Ad-free experience</div>
-            <div class="pro-feat">WhatsApp price drop alerts</div>
-            <div class="pro-feat">Early access to flash deals</div>
-            <div class="pro-feat">Priority AI shopping assistant</div>
-          </div>
-          <button class="pro-btn" onclick="upgradePro()">Upgrade to Pro — $4/month</button>
-        </div>
-      </div>
-
-      <!-- PREFERENCES -->
-      <div class="prof-section" id="sec-preferences">
-        <div class="prof-sec-title">Preferences</div>
-        <div class="pref-row">
-          <div><div class="pref-label">Default Currency</div><div class="pref-sub" id="currLabel">Currently: INR</div></div>
-          <select class="pf-input" style="width:auto" onchange="setCountry(this.value);document.getElementById('currLabel').textContent='Currently: '+CC[this.value].c">
-            <option value="IN">INR — ₹</option><option value="US">USD — $</option><option value="GB">GBP — £</option><option value="EU">EUR — €</option><option value="AU">AUD — A$</option><option value="JP">JPY — ¥</option><option value="AE">AED</option>
-          </select>
-        </div>
-        <div class="pref-row">
-          <div><div class="pref-label">Dark Mode</div><div class="pref-sub">Switch between light and dark</div></div>
-          <button class="toggle" id="darkToggle" onclick="toggleTheme();this.classList.toggle('on')"></button>
-        </div>
-        <div class="pref-row">
-          <div><div class="pref-label">Price Alerts</div><div class="pref-sub">Get notified when prices drop</div></div>
-          <button class="toggle on" onclick="this.classList.toggle('on')"></button>
-        </div>
-        <div class="pref-row">
-          <div><div class="pref-label">Weekly Price Digest</div><div class="pref-sub">Email summary of price changes</div></div>
-          <button class="toggle" onclick="this.classList.toggle('on')"></button>
-        </div>
-        <div class="pref-row">
-          <div><div class="pref-label">Flash Deal Alerts</div><div class="pref-sub">Instant notification for limited deals</div></div>
-          <button class="toggle on" onclick="this.classList.toggle('on')"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div id="toast"><div class="toast-g"></div><span id="toastTxt"></span></div>
 <button id="mfBtn" onclick="toggleSidebar()">Filters</button>
+<div id="toast"><div class="toast-g"></div><span id="toastTxt"></span></div>
 
 <script>
-// ══════════════════════════════════════════════════════
-// PRICE TAG — LIVE PRICE ENGINE
-// ══════════════════════════════════════════════════════
-
-// ▼ Paste your Vercel URL here after deploying the backend
-const BACKEND_URL = 'YOUR_VERCEL_URL_HERE';
-// e.g. 'https://pricetag-backend.vercel.app'
-
-const priceCache = {};
-
-async function fetchLivePrices(product) {
-  const cacheKey = `${product.id}_${curC}`;
-  if (priceCache[cacheKey]) return priceCache[cacheKey];
-  if (!BACKEND_URL || BACKEND_URL === 'YOUR_VERCEL_URL_HERE') return product.stores;
-  try {
-    const query = encodeURIComponent(product.name);
-    const amznStore = product.stores.find(s => s.id === 'amazon');
-    const asin = amznStore?.buyUrl?.match(/\/dp\/([A-Z0-9]{10})/)?.[1];
-    let url = `${BACKEND_URL}/api/prices?q=${query}&country=${curC}`;
-    if (asin) url += `&asin=${asin}`;
-    const resp = await fetch(url);
-    if (!resp.ok) throw new Error('Backend error');
-    const data = await resp.json();
-    if (!data.ok || !data.results?.length) return product.stores;
-    const liveStores = data.results.map(r => {
-      const storeId = guessStoreId(r.store);
-      const existing = product.stores.find(s => s.id === storeId);
-      return { id:storeId, n:r.store, p:r.price, sh:r.shipping||0, buyUrl:existing?.buyUrl||r.link||'#', live:true };
-    });
-    const merged = [...liveStores];
-    product.stores.forEach(s => { if (!merged.find(m => m.id === s.id)) merged.push(s); });
-    const sorted = merged.sort((a,b) => (a.p+a.sh)-(b.p+b.sh));
-    priceCache[cacheKey] = sorted;
-    return sorted;
-  } catch(e) {
-    console.warn('Live prices unavailable, using fallback:', e.message);
-    return product.stores;
-  }
-}
-
-function guessStoreId(name) {
-  const n = name.toLowerCase();
-  if (n.includes('amazon'))   return 'amazon';
-  if (n.includes('flipkart')) return 'flipkart';
-  if (n.includes('myntra'))   return 'myntra';
-  if (n.includes('ajio'))     return 'ajio';
-  if (n.includes('croma'))    return 'croma';
-  if (n.includes('reliance')) return 'reliance';
-  if (n.includes('nykaa'))    return 'rakuten';
-  if (n.includes('walmart'))  return 'walmart';
-  if (n.includes('best buy')) return 'bestbuy';
-  if (n.includes('target'))   return 'target';
-  if (n.includes('costco'))   return 'costco';
-  if (n.includes('ebay'))     return 'ebay';
-  if (n.includes('newegg'))   return 'newegg';
-  if (n.includes('nike'))     return 'nike';
-  if (n.includes('apple'))    return 'apple';
-  if (n.includes('samsung'))  return 'samsung';
-  return name.toLowerCase().replace(/[^a-z0-9]/g,'').substring(0,12);
-}
-
 // ── COOKIES ──
 const Cookie={set:(k,v,d=365)=>{const e=new Date();e.setDate(e.getDate()+d);document.cookie=k+'='+encodeURIComponent(JSON.stringify(v))+';expires='+e.toUTCString()+';path=/;SameSite=Lax';},get:(k)=>{const c=document.cookie.split(';').find(r=>r.trim().startsWith(k+'='));if(!c)return null;try{return JSON.parse(decodeURIComponent(c.trim().slice(k.length+1)));}catch{return null;}},del:(k)=>{document.cookie=k+'=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';}};
 
 // ── CURRENCIES ──
-const CC={IN:{c:'INR',s:'₹',r:83.1,dial:'+91',lbl:'India — INR'},US:{c:'USD',s:'$',r:1,dial:'+1',lbl:'United States — USD'},GB:{c:'GBP',s:'£',r:.79,dial:'+44',lbl:'UK — GBP'},EU:{c:'EUR',s:'€',r:.92,dial:'+33',lbl:'Europe — EUR'},AU:{c:'AUD',s:'A$',r:1.52,dial:'+61',lbl:'Australia — AUD'},CA:{c:'CAD',s:'C$',r:1.36,dial:'+1',lbl:'Canada — CAD'},JP:{c:'JPY',s:'¥',r:149,dial:'+81',lbl:'Japan — JPY'},AE:{c:'AED',s:'د.إ',r:3.67,dial:'+971',lbl:'UAE — AED'},SG:{c:'SGD',s:'S$',r:1.34,dial:'+65',lbl:'Singapore — SGD'},BR:{c:'BRL',s:'R$',r:4.97,dial:'+55',lbl:'Brazil — BRL'},CN:{c:'CNY',s:'¥',r:7.24,dial:'+86',lbl:'China — CNY'},DE:{c:'EUR',s:'€',r:.92,dial:'+49',lbl:'Germany — EUR'},FR:{c:'EUR',s:'€',r:.92,dial:'+33',lbl:'France — EUR'},IT:{c:'EUR',s:'€',r:.92,dial:'+39',lbl:'Italy — EUR'},ES:{c:'EUR',s:'€',r:.92,dial:'+34',lbl:'Spain — EUR'},NL:{c:'EUR',s:'€',r:.92,dial:'+31',lbl:'Netherlands — EUR'},SE:{c:'SEK',s:'kr',r:10.5,dial:'+46',lbl:'Sweden — SEK'},NO:{c:'NOK',s:'kr',r:10.7,dial:'+47',lbl:'Norway — NOK'},DK:{c:'DKK',s:'kr',r:6.86,dial:'+45',lbl:'Denmark — DKK'},CH:{c:'CHF',s:'Fr',r:.89,dial:'+41',lbl:'Switzerland — CHF'},PL:{c:'PLN',s:'zł',r:3.94,dial:'+48',lbl:'Poland — PLN'},RU:{c:'RUB',s:'₽',r:92.5,dial:'+7',lbl:'Russia — RUB'},ZA:{c:'ZAR',s:'R',r:18.7,dial:'+27',lbl:'South Africa — ZAR'},NG:{c:'NGN',s:'₦',r:1550,dial:'+234',lbl:'Nigeria — NGN'},KE:{c:'KES',s:'KSh',r:129,dial:'+254',lbl:'Kenya — KES'},EG:{c:'EGP',s:'£',r:30.9,dial:'+20',lbl:'Egypt — EGP'},SA:{c:'SAR',s:'﷼',r:3.75,dial:'+966',lbl:'Saudi Arabia — SAR'},TR:{c:'TRY',s:'₺',r:32.5,dial:'+90',lbl:'Turkey — TRY'},PK:{c:'PKR',s:'₨',r:278,dial:'+92',lbl:'Pakistan — PKR'},BD:{c:'BDT',s:'৳',r:109,dial:'+880',lbl:'Bangladesh — BDT'},LK:{c:'LKR',s:'Rs',r:303,dial:'+94',lbl:'Sri Lanka — LKR'},MY:{c:'MYR',s:'RM',r:4.72,dial:'+60',lbl:'Malaysia — MYR'},TH:{c:'THB',s:'฿',r:35.1,dial:'+66',lbl:'Thailand — THB'},ID:{c:'IDR',s:'Rp',r:15700,dial:'+62',lbl:'Indonesia — IDR'},PH:{c:'PHP',s:'₱',r:56.2,dial:'+63',lbl:'Philippines — PHP'},KR:{c:'KRW',s:'₩',r:1330,dial:'+82',lbl:'South Korea — KRW'},TW:{c:'TWD',s:'NT$',r:31.8,dial:'+886',lbl:'Taiwan — TWD'},HK:{c:'HKD',s:'HK$',r:7.82,dial:'+852',lbl:'Hong Kong — HKD'},NZ:{c:'NZD',s:'NZ$',r:1.63,dial:'+64',lbl:'New Zealand — NZD'},MX:{c:'MXN',s:'$',r:17.1,dial:'+52',lbl:'Mexico — MXN'},AR:{c:'ARS',s:'$',r:855,dial:'+54',lbl:'Argentina — ARS'},IL:{c:'ILS',s:'₪',r:3.72,dial:'+972',lbl:'Israel — ILS'},QA:{c:'QAR',s:'﷼',r:3.64,dial:'+974',lbl:'Qatar — QAR'},NG2:{c:'USD',s:'$',r:1,dial:'+1',lbl:'Other — USD'}};
+const CC={IN:{c:'INR',s:'₹',r:83.1,dial:'+91',lbl:'India — INR'},US:{c:'USD',s:'$',r:1,dial:'+1',lbl:'United States — USD'},GB:{c:'GBP',s:'£',r:.79,dial:'+44',lbl:'UK — GBP'},EU:{c:'EUR',s:'€',r:.92,dial:'+33',lbl:'Europe — EUR'},AU:{c:'AUD',s:'A$',r:1.52,dial:'+61',lbl:'Australia — AUD'},CA:{c:'CAD',s:'C$',r:1.36,dial:'+1',lbl:'Canada — CAD'},JP:{c:'JPY',s:'¥',r:149,dial:'+81',lbl:'Japan — JPY'},AE:{c:'AED',s:'د.إ',r:3.67,dial:'+971',lbl:'UAE — AED'},SG:{c:'SGD',s:'S$',r:1.34,dial:'+65',lbl:'Singapore — SGD'},BR:{c:'BRL',s:'R$',r:4.97,dial:'+55',lbl:'Brazil — BRL'}};
 const CK=Object.keys(CC);let curC=Cookie.get('pricetag_country')||'IN',cIdx=CK.indexOf(curC);
 const fmt=usd=>{const c=CC[curC];const v=usd*c.r;return v>=1000?c.s+Math.round(v).toLocaleString():c.s+v.toFixed(2);};
 function setCountry(code){curC=code;cIdx=CK.indexOf(code);Cookie.set('pricetag_country',code);const c=CC[code];document.getElementById('cCode').textContent=c.c;document.getElementById('heroSaved').textContent=fmt(34);updateRange(document.getElementById('priceRange').value);renderProds(curCat);showToast('Currency: '+c.c);}
@@ -1493,172 +987,21 @@ const STORES=[
 ];
 let selS=new Set(STORES.map(s=>s.id));
 
-// ─────────────────────────────────────────────
-// REAL PRODUCTS — Affiliate links to live stores
-// Fill in AMZN_TAG and FK_AFFID below with your IDs
-// ─────────────────────────────────────────────
-const AMZN_TAG = 'pricetag03-21';   // e.g. 'pricetag-21' from affiliate-program.amazon.in
-const FK_AFFID  = 'YOUR_FK_AFFID';    // from affiliate.flipkart.com
-function amzn(asin){ return `https://www.amazon.in/dp/${asin}?tag=${AMZN_TAG}&linkCode=ll1`; }
-function fk(path){ return `https://www.flipkart.com${path}&affid=${FK_AFFID}`; }
-
-const PRODS = [
-  {id:1, name:'Apple iPhone 15 128GB — Black', brand:'Apple', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80',
-   rating:4.7, rv:18240, hot:true,
-   desc:'Dynamic Island, 48MP camera, USB-C, A16 Bionic chip, Ceramic Shield.',
-   stores:[
-     {id:'amazon',   p:72900, sh:0, buyUrl:amzn('B0CHX3QBCH')},
-     {id:'flipkart', p:74999, sh:0, buyUrl:fk('/apple-iphone-15-black-128-gb/p/itm6ac6485515ae4')},
-     {id:'apple',    p:79900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-iphone/iphone-15'},
-   ]},
-  {id:2, name:'Samsung Galaxy S24 Ultra 256GB — Titanium Black', brand:'Samsung', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80',
-   rating:4.8, rv:9410, hot:true,
-   desc:'200MP camera, S Pen, 6.8" QHD+ AMOLED, Snapdragon 8 Gen 3.',
-   stores:[
-     {id:'amazon',   p:109999, sh:0, buyUrl:amzn('B0CMDRCZBX')},
-     {id:'flipkart', p:112999, sh:0, buyUrl:fk('/samsung-galaxy-s24-ultra-5g-titanium-black-256-gb/p/itm7bc777cb43c2a')},
-     {id:'samsung',  p:114999, sh:0, buyUrl:'https://www.samsung.com/in/smartphones/galaxy-s24-ultra/'},
-     {id:'bestbuy',  p:99999,  sh:0, buyUrl:'https://www.bestbuy.com/site/searchpage.jsp?st=galaxy+s24+ultra'},
-   ]},
-  {id:3, name:'Sony WH-1000XM5 Wireless Noise-Cancelling Headphones', brand:'Sony', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',
-   rating:4.8, rv:34200, hot:true,
-   desc:'Industry-leading ANC, 30hr battery, multipoint connection, Speak-to-Chat.',
-   stores:[
-     {id:'amazon',   p:24990, sh:0, buyUrl:amzn('B09XS7JWHH')},
-     {id:'flipkart', p:26990, sh:0, buyUrl:fk('/sony-wh-1000xm5-bluetooth-headset/p/itmf7a28d8f96e2d')},
-     {id:'bestbuy',  p:28999, sh:0, buyUrl:'https://www.bestbuy.com/site/sony-wh1000xm5/6505728.p'},
-     {id:'walmart',  p:27200, sh:0, buyUrl:'https://www.walmart.com/search?q=sony+wh1000xm5'},
-     {id:'costco',   p:26400, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=wh1000xm5'},
-   ]},
-  {id:4, name:'Apple MacBook Air M3 13-inch 8GB 256GB — Midnight', brand:'Apple', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
-   rating:4.9, rv:22100,
-   desc:'M3 chip, 18hr battery, fanless design, Liquid Retina display, MagSafe.',
-   stores:[
-     {id:'amazon',   p:114900, sh:0, buyUrl:amzn('B0CX23V2ZK')},
-     {id:'flipkart', p:119900, sh:0, buyUrl:fk('/apple-macbook-air-m3-8-gb-256-gb-ssd/p/itm526f6aa0d96e0')},
-     {id:'apple',    p:114900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-mac/macbook-air/13-inch'},
-     {id:'costco',   p:111900, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=macbook+air+m3'},
-   ]},
-  {id:5, name:'Samsung 65" QLED 4K Smart TV Q60D', brand:'Samsung', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80',
-   rating:4.6, rv:6320, hot:true,
-   desc:'Quantum Dot, 4K AI Upscaling, SmartThings, Motion Xcelerator 120.',
-   stores:[
-     {id:'amazon',   p:74990, sh:0, buyUrl:amzn('B0CJKPKQTL')},
-     {id:'flipkart', p:79990, sh:0, buyUrl:fk('/samsung-138-cm-55-inches-4k-ultra-hd-smart-qled-tv/p/itmf04bc8265bac7')},
-     {id:'samsung',  p:82900, sh:0, buyUrl:'https://www.samsung.com/in/televisions-audio-video/qled-tv/'},
-     {id:'walmart',  p:72000, sh:0, buyUrl:'https://www.walmart.com/search?q=samsung+65+qled+tv'},
-     {id:'bestbuy',  p:75000, sh:0, buyUrl:'https://www.bestbuy.com/site/searchpage.jsp?st=samsung+65+qled'},
-     {id:'costco',   p:70000, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=samsung+65+qled'},
-   ]},
-  {id:6, name:'Apple Watch Series 9 GPS 45mm — Midnight', brand:'Apple', cat:'electronics',
-   img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',
-   rating:4.7, rv:9870,
-   desc:'S9 chip, Double Tap gesture, always-on Retina display, crash detection.',
-   stores:[
-     {id:'amazon',   p:44900, sh:0, buyUrl:amzn('B0CHX9N594')},
-     {id:'flipkart', p:46900, sh:0, buyUrl:fk('/apple-watch-series-9-gps-45mm-midnight-aluminium/p/itm9cbf4478d3f23')},
-     {id:'apple',    p:44900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-watch/apple-watch'},
-     {id:'bestbuy',  p:43500, sh:0, buyUrl:'https://www.bestbuy.com/site/apple-watch-series-9/6373868.p'},
-   ]},
-  {id:7, name:'Nike Air Max 270 Running Shoes — Black/White', brand:'Nike', cat:'fashion',
-   img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',
-   rating:4.6, rv:8420,
-   desc:'Max Air heel unit, breathable mesh upper, foam midsole for all-day comfort.',
-   stores:[
-     {id:'amazon',   p:9995,  sh:0, buyUrl:amzn('B07D7J28W4')},
-     {id:'flipkart', p:10995, sh:0, buyUrl:fk('/nike-air-max-270-running-shoes/p/itmf7b2c6f0264b9')},
-     {id:'nike',     p:12495, sh:0, buyUrl:'https://www.nike.com/in/t/air-max-270-shoes/AH8050-002'},
-     {id:'walmart',  p:9500,  sh:0, buyUrl:'https://www.walmart.com/search?q=nike+air+max+270'},
-     {id:'zappos',   p:10800, sh:0, buyUrl:'https://www.zappos.com/product/nike-air-max-270'},
-   ]},
-  {id:8, name:"Levi's 511 Slim Fit Jeans — Dark Wash", brand:"Levi's", cat:'fashion',
-   img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80',
-   rating:4.5, rv:15600,
-   desc:'Sits below waist, slim through hip and thigh, straight leg opening.',
-   stores:[
-     {id:'amazon',   p:2799, sh:0, buyUrl:amzn('B00EB7Y3GU')},
-     {id:'flipkart', p:3299, sh:0, buyUrl:fk('/levis-slim-men-dark-blue-jeans/p/itmezqm3yyxfthcz')},
-     {id:'walmart',  p:2700, sh:0, buyUrl:'https://www.walmart.com/search?q=levis+511+slim'},
-     {id:'target',   p:3100, sh:0, buyUrl:'https://www.target.com/s?searchTerm=levis+511'},
-   ]},
-  {id:9, name:'Dyson V15 Detect Absolute Cordless Vacuum', brand:'Dyson', cat:'home',
-   img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-   rating:4.9, rv:7650,
-   desc:'Laser reveals hidden dust, auto-adjusts suction, 60-min run time, HEPA.',
-   stores:[
-     {id:'amazon',   p:49900, sh:0, buyUrl:amzn('B09NQKR1T1')},
-     {id:'flipkart', p:52990, sh:0, buyUrl:fk('/dyson-v15-detect-absolute-vacuum-cleaner/p/itm6ba6a3a7e7db4')},
-     {id:'walmart',  p:48500, sh:0, buyUrl:'https://www.walmart.com/search?q=dyson+v15+detect'},
-     {id:'bestbuy',  p:51000, sh:0, buyUrl:'https://www.bestbuy.com/site/dyson-v15/6501575.p'},
-     {id:'homedepo', p:50000, sh:0, buyUrl:'https://www.homedepot.com/s/dyson%20v15'},
-   ]},
-  {id:10, name:'Instant Pot Duo 7-in-1 Electric Pressure Cooker 6Qt', brand:'Instant Pot', cat:'home',
-   img:'https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&q=80',
-   rating:4.7, rv:231000,
-   desc:'Pressure cooker, slow cooker, rice cooker, steamer, saute, yogurt, warmer.',
-   stores:[
-     {id:'amazon',   p:7495, sh:0, buyUrl:amzn('B00FLYWNYQ')},
-     {id:'walmart',  p:6800, sh:0, buyUrl:'https://www.walmart.com/search?q=instant+pot+duo+6qt'},
-     {id:'target',   p:7200, sh:0, buyUrl:'https://www.target.com/s?searchTerm=instant+pot+duo'},
-     {id:'costco',   p:6400, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=instant+pot'},
-   ]},
-  {id:11, name:'CeraVe Moisturising Cream 454g', brand:'CeraVe', cat:'beauty',
-   img:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80',
-   rating:4.8, rv:89200,
-   desc:'3 ceramides, hyaluronic acid, fragrance-free, MVE delivery technology.',
-   stores:[
-     {id:'amazon',   p:599,  sh:0, buyUrl:amzn('B00TTD9BRC')},
-     {id:'flipkart', p:699,  sh:0, buyUrl:fk('/cerave-moisturising-cream/p/itm45aeed4e0f75c')},
-     {id:'walmart',  p:550,  sh:0, buyUrl:'https://www.walmart.com/search?q=cerave+moisturising+cream+454g'},
-     {id:'target',   p:620,  sh:0, buyUrl:'https://www.target.com/s?searchTerm=cerave+moisturizing+cream'},
-     {id:'costco',   p:520,  sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=cerave'},
-   ]},
-  {id:12, name:'Adidas Tiro 23 League Football Size 5', brand:'Adidas', cat:'sports',
-   img:'https://images.unsplash.com/photo-1614632537190-23e4e2898b88?w=400&q=80',
-   rating:4.6, rv:2100,
-   desc:'Machine-stitched, butyl bladder for air retention, polyurethane cover.',
-   stores:[
-     {id:'amazon',   p:1299, sh:0, buyUrl:amzn('B0CDLYFM56')},
-     {id:'flipkart', p:1499, sh:0, buyUrl:fk('/adidas-tiro-23-league-football/p/itm78d9cfeaf5621')},
-     {id:'walmart',  p:1200, sh:0, buyUrl:'https://www.walmart.com/search?q=adidas+tiro+football+size+5'},
-     {id:'ebay',     p:1150, sh:0, buyUrl:'https://www.ebay.com/sch/i.html?_nkw=adidas+tiro+league+football'},
-   ]},
-  {id:13, name:'Atomic Habits — James Clear (Paperback)', brand:'James Clear', cat:'books',
-   img:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80',
-   rating:4.9, rv:127000,
-   desc:'#1 NYT Bestseller. Tiny changes, remarkable results. 5M+ copies sold.',
-   stores:[
-     {id:'amazon',   p:399,  sh:0, buyUrl:amzn('1847941834')},
-     {id:'flipkart', p:419,  sh:0, buyUrl:fk('/atomic-habits-james-clear/p/itm0b462946c7fa85')},
-     {id:'walmart',  p:380,  sh:0, buyUrl:'https://www.walmart.com/search?q=atomic+habits+james+clear'},
-     {id:'target',   p:420,  sh:0, buyUrl:'https://www.target.com/s?searchTerm=atomic+habits'},
-   ]},
-  {id:14, name:'Tata Tea Gold Premium 1kg', brand:'Tata Tea', cat:'groceries',
-   img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80',
-   rating:4.5, rv:3400,
-   desc:'Finest tea leaves, rich aroma, strong cup, freshness-sealed packaging.',
-   stores:[
-     {id:'amazon',   p:469, sh:0, buyUrl:amzn('B07DKXG7P6')},
-     {id:'flipkart', p:499, sh:0, buyUrl:fk('/tata-tea-gold-tea/p/itmf6b1a6d8a99dc')},
-     {id:'walmart',  p:450, sh:0, buyUrl:'https://www.walmart.com/search?q=tata+tea+gold'},
-     {id:'costco',   p:430, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=tata+tea'},
-   ]},
-  {id:15, name:'Michelin Pilot Sport 5 245/45R18 Tyre', brand:'Michelin', cat:'automotive',
-   img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80',
-   rating:4.8, rv:5620,
-   desc:'Ultra-high performance summer tyre, enhanced wet grip, track and road.',
-   stores:[
-     {id:'amazon',   p:12999, sh:0,  buyUrl:amzn('B07BQ1X4TN')},
-     {id:'walmart',  p:12500, sh:0,  buyUrl:'https://www.walmart.com/search?q=michelin+pilot+sport+5+245+45+18'},
-     {id:'costco',   p:11999, sh:0,  buyUrl:'https://www.costco.com/catalogsearch/results?keyword=michelin+pilot+sport'},
-     {id:'ebay',     p:11500, sh:500,buyUrl:'https://www.ebay.com/sch/i.html?_nkw=michelin+pilot+sport+5+245+45r18'},
-     {id:'newegg',   p:12200, sh:0,  buyUrl:'https://www.newegg.com/p/pl?d=michelin+tyre'},
-   ]},
+// ── PRODUCTS (clean, no specific brands in descriptions) ──
+const IMGS={a:'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80',b:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',c:'https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80',d:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',e:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',f:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',g:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',h:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80',i:'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&q=80',j:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80',k:'https://images.unsplash.com/photo-1614632537190-23e4e2898b88?w=400&q=80',l:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80'};
+const PRODS=[
+  {id:1,name:'Smartphone Pro 256GB — Titanium Edition',cat:'electronics',img:IMGS.a,rating:4.8,rv:12840,hot:true,stores:[{id:'costco',p:989,sh:0},{id:'amazon',p:999,sh:0},{id:'bestbuy',p:1049,sh:0},{id:'walmart',p:1079,sh:5},{id:'target',p:1099,sh:0},{id:'apple',p:1099,sh:0}]},
+  {id:2,name:'Premium Running Sneakers — Black / White',cat:'fashion',img:IMGS.b,rating:4.6,rv:8420,stores:[{id:'nike',p:130,sh:0},{id:'amazon',p:142,sh:0},{id:'walmart',p:138,sh:5},{id:'target',p:148,sh:5},{id:'zappos',p:155,sh:0}]},
+  {id:3,name:'65-inch QLED 4K Smart Television',cat:'electronics',img:IMGS.c,rating:4.7,rv:6320,hot:true,stores:[{id:'costco',p:749,sh:0},{id:'samsung',p:799,sh:0},{id:'walmart',p:819,sh:0},{id:'amazon',p:829,sh:0},{id:'bestbuy',p:849,sh:0}]},
+  {id:4,name:'Ultra-thin Laptop M2 — 13" 8GB 256GB',cat:'electronics',img:IMGS.d,rating:4.9,rv:22100,stores:[{id:'costco',p:1029,sh:0},{id:'amazon',p:1049,sh:0},{id:'walmart',p:1079,sh:0},{id:'bestbuy',p:1099,sh:0},{id:'apple',p:1099,sh:0}]},
+  {id:5,name:'Wireless Noise-Cancelling Headphones — Over Ear',cat:'electronics',img:IMGS.e,rating:4.8,rv:34200,hot:true,stores:[{id:'costco',p:269,sh:0},{id:'amazon',p:279,sh:0},{id:'walmart',p:289,sh:0},{id:'bestbuy',p:299,sh:0},{id:'target',p:299,sh:0}]},
+  {id:6,name:'Smart Watch GPS 45mm — Midnight Aluminium',cat:'electronics',img:IMGS.f,rating:4.7,rv:9870,stores:[{id:'costco',p:399,sh:0},{id:'amazon',p:409,sh:0},{id:'target',p:419,sh:5},{id:'bestbuy',p:429,sh:0},{id:'apple',p:429,sh:0}]},
+  {id:7,name:'Cordless Vacuum Cleaner — High Performance',cat:'home',img:IMGS.g,rating:4.9,rv:7650,stores:[{id:'amazon',p:599,sh:0},{id:'walmart',p:619,sh:0},{id:'bestbuy',p:629,sh:0},{id:'homedepo',p:649,sh:0},{id:'target',p:649,sh:6}]},
+  {id:8,name:'Moisturising Face Cream 454g — All Skin Types',cat:'beauty',img:IMGS.h,rating:4.8,rv:89200,stores:[{id:'costco',p:12.99,sh:0},{id:'walmart',p:13.88,sh:0},{id:'amazon',p:14.99,sh:0},{id:'target',p:15.49,sh:0}]},
+  {id:9,name:'Organic Whole Milk 1 Gallon — Grass Fed',cat:'groceries',img:IMGS.i,rating:4.5,rv:3400,stores:[{id:'costco',p:3.99,sh:0},{id:'walmart',p:4.28,sh:3},{id:'target',p:4.99,sh:3.5},{id:'amazon',p:5.49,sh:0}]},
+  {id:10,name:'Bestselling Self-Help Book — Paperback',cat:'books',img:IMGS.j,rating:4.9,rv:127000,stores:[{id:'ebay',p:9.99,sh:4},{id:'amazon',p:11.98,sh:0},{id:'walmart',p:12.88,sh:0},{id:'target',p:14.99,sh:5}]},
+  {id:11,name:'Professional Match Ball — Size 5',cat:'sports',img:IMGS.k,rating:4.6,rv:2100,stores:[{id:'ebay',p:32,sh:6},{id:'walmart',p:34.99,sh:5},{id:'amazon',p:39.99,sh:0},{id:'target',p:44.99,sh:0}]},
+  {id:12,name:'Performance All-Season Tyre 245/45R18',cat:'automotive',img:IMGS.l,rating:4.8,rv:5620,stores:[{id:'ebay',p:159,sh:12},{id:'costco',p:169,sh:0},{id:'newegg',p:175,sh:5},{id:'walmart',p:179,sh:8},{id:'amazon',p:189,sh:0}]},
 ];
 
 let curCat='all',wishlist=Cookie.get('pricetag_wish')||[],recentViewed=[],viewMode='grid';
@@ -1688,46 +1031,18 @@ function autoLoginCheck(){if(Cookie.get('pricetag_loggedin'))doLogin(Cookie.get(
 
 // ── AUTO DETECT LOCATION ──
 function detectLocation(){
+  // Uses timezone to guess country
   const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
   let code='IN';
-  if(tz.includes('America/New_York')||tz.includes('America/Chicago')||tz.includes('America/Los_Angeles')||tz.includes('America/Denver'))code='US';
-  else if(tz.includes('America'))code='US';
+  if(tz.includes('America'))code='US';
   else if(tz.includes('London'))code='GB';
-  else if(tz.includes('Paris')||tz.includes('Berlin')||tz.includes('Rome')||tz.includes('Madrid')||tz.includes('Amsterdam'))code='EU';
-  else if(tz.includes('Sydney')||tz.includes('Melbourne'))code='AU';
+  else if(tz.includes('Paris')||tz.includes('Berlin'))code='EU';
+  else if(tz.includes('Sydney'))code='AU';
   else if(tz.includes('Tokyo'))code='JP';
   else if(tz.includes('Dubai'))code='AE';
   else if(tz.includes('Singapore'))code='SG';
   else if(tz.includes('Sao_Paulo'))code='BR';
-  else if(tz.includes('Shanghai')||tz.includes('Beijing'))code='CN';
-  else if(tz.includes('Seoul'))code='KR';
-  else if(tz.includes('Karachi'))code='PK';
-  else if(tz.includes('Dhaka'))code='BD';
-  else if(tz.includes('Colombo'))code='LK';
-  else if(tz.includes('Kathmandu'))code='NP';
-  else if(tz.includes('Kuala_Lumpur'))code='MY';
-  else if(tz.includes('Bangkok'))code='TH';
-  else if(tz.includes('Jakarta'))code='ID';
-  else if(tz.includes('Manila'))code='PH';
-  else if(tz.includes('Riyadh'))code='SA';
-  else if(tz.includes('Istanbul'))code='TR';
-  else if(tz.includes('Cairo'))code='EG';
-  else if(tz.includes('Lagos'))code='NG';
-  else if(tz.includes('Nairobi'))code='KE';
-  else if(tz.includes('Johannesburg'))code='ZA';
-  else if(tz.includes('Toronto')||tz.includes('Vancouver'))code='CA';
-  else if(tz.includes('Mexico'))code='MX';
-  else if(tz.includes('Auckland'))code='NZ';
-  else if(tz.includes('Zurich'))code='CH';
-  else if(tz.includes('Stockholm'))code='SE';
-  else if(tz.includes('Oslo'))code='NO';
-  else if(tz.includes('Copenhagen'))code='DK';
-  else if(tz.includes('Warsaw'))code='PL';
-  else if(tz.includes('Moscow'))code='RU';
-  else if(tz.includes('Taipei'))code='TW';
-  else if(tz.includes('Hong_Kong'))code='HK';
   curC=Cookie.get('pricetag_country')||code;
-  if(!CC[curC])curC='IN';
   document.getElementById('detectedRegion').textContent=CC[curC].lbl;
   document.getElementById('dialCode').value=CC[curC].dial;
   document.getElementById('countryPicker').value=curC;
@@ -1753,294 +1068,19 @@ function selectAll(){selS=new Set(STORES.map(s=>s.id));buildStores();renderProds
 function updateRange(v){document.getElementById('rMax').textContent=fmt(Number(v));document.getElementById('rMin').textContent=fmt(0);}
 
 // ── PRODUCTS ──
-// ══════════════════════════════════════════════════════
-// LIVE PRODUCT ENGINE — auto-fetches real products
-// from SerpApi Google Shopping on every category click
-// ══════════════════════════════════════════════════════
-
-// Category → search query mapping (India-optimised)
-const CAT_QUERIES = {
-  all:        ['best deals India today', 'top selling products India', 'trending gadgets India 2025'],
-  electronics:['best smartphones India 2025', 'laptops under 60000 India', 'wireless earphones India', 'smart tv India deals', 'smartwatch India 2025'],
-  fashion:    ['Nike Adidas shoes India', 'mens shirts India trending', 'womens fashion India top brands', 'sneakers India 2025'],
-  groceries:  ['daily essentials grocery India', 'organic food products India', 'instant food snacks India'],
-  home:       ['home appliances India best price', 'kitchen appliances India', 'vacuum cleaner India', 'air purifier India'],
-  beauty:     ['skincare face cream India', 'hair care products India', 'makeup beauty India top brands'],
-  sports:     ['cricket bat India', 'football shoes India', 'gym fitness equipment India', 'yoga mat India'],
-  books:      ['bestselling books India 2025', 'self help books India', 'engineering books India'],
-  automotive: ['car accessories India', 'bike accessories India', 'tyre India best price'],
-};
-
-// Live products cache — avoids re-fetching same category
-const liveProdsCache = {};
-let currentLiveProds = []; // holds the currently displayed live products
-
-function showSkels(n=8){
-  document.getElementById('pgrid').innerHTML = Array(n).fill(0).map(()=>`
-    <div class="sk-card">
-      <div class="sk-img"></div>
-      <div class="sk-body">
-        <div class="skl" style="height:10px;width:35%;margin-bottom:8px"></div>
-        <div class="skl" style="height:13px;width:80%"></div>
-        <div class="skl" style="height:13px;width:60%;margin-bottom:12px"></div>
-        <div class="skl" style="height:22px;width:45%;margin-bottom:8px"></div>
-        <div class="skl" style="height:32px;border-radius:8px"></div>
-      </div>
-    </div>`).join('');
-}
-
-function getBest(p){
-  const a=[...p.stores].filter(s=>selS.has(s.id));
-  return(a.length?a:p.stores).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh))[0];
-}
+function showSkels(){document.getElementById('pgrid').innerHTML=Array(8).fill(0).map(()=>`<div class="sk-card"><div class="sk-img"></div><div class="sk-body"><div class="skl" style="height:10px;width:35%;margin-bottom:8px"></div><div class="skl" style="height:13px;width:80%"></div><div class="skl" style="height:13px;width:60%;margin-bottom:12px"></div><div class="skl" style="height:22px;width:45%;margin-bottom:8px"></div><div class="skl" style="height:32px;border-radius:8px"></div></div></div>`).join('');}
+function getBest(p){const a=[...p.stores].filter(s=>selS.has(s.id));return(a.length?a:p.stores).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh))[0];}
 function starsHTML(r){return'★'.repeat(Math.floor(r))+'☆'.repeat(5-Math.floor(r));}
-
-async function renderProds(cat) {
-  curCat = cat;
-  isSearchMode = false;
-  const backBar = document.getElementById('searchBackBar');
-  if (backBar) backBar.remove();
-
-  // Show skeletons immediately
-  showSkels(12);
-  document.getElementById('pgrid').className = viewMode==='list' ? 'list-view' : '';
-
-  // If backend not configured — fall back to hardcoded products
-  if (!BACKEND_URL || BACKEND_URL === 'YOUR_VERCEL_URL_HERE') {
-    setTimeout(() => {
-      const list = cat==='all' ? PRODS : PRODS.filter(p=>p.cat===cat);
-      document.getElementById('pgrid').innerHTML = list.length
-        ? list.map(p=>cardHTML(p)).join('')
-        : '<div style="padding:60px;text-align:center;color:var(--ink3)">No products found.</div>';
-    }, 460);
-    return;
-  }
-
-  // Check cache first
-  const cacheKey = `${cat}_${curC}`;
-  if (liveProdsCache[cacheKey]) {
-    renderLiveProds(liveProdsCache[cacheKey]);
-    // Refresh in background silently
-    fetchAndRenderLive(cat, cacheKey, true);
-    return;
-  }
-
-  await fetchAndRenderLive(cat, cacheKey, false);
+function renderProds(cat){
+  curCat=cat;showSkels();
+  setTimeout(()=>{
+    const list=cat==='all'?PRODS:PRODS.filter(p=>p.cat===cat);
+    const g=document.getElementById('pgrid');
+    g.className=viewMode==='list'?'list-view':'';
+    if(!list.length){g.innerHTML='<div style="padding:60px;text-align:center;color:var(--ink3)">No products found.</div>';return;}
+    g.innerHTML=list.map(p=>cardHTML(p)).join('');
+  },460);
 }
-
-async function fetchAndRenderLive(cat, cacheKey, silent) {
-  try {
-    const queries = CAT_QUERIES[cat] || CAT_QUERIES['all'];
-    // Pick 2 random queries for variety
-    const picked = queries.sort(()=>Math.random()-.5).slice(0, 2);
-
-    // Fetch both queries in parallel
-    const fetches = picked.map(q =>
-      fetch(`${BACKEND_URL}/api/prices?q=${encodeURIComponent(q)}&country=${curC}`)
-        .then(r => r.json()).catch(()=>({ok:false,results:[]}))
-    );
-    const responses = await Promise.all(fetches);
-
-    // Merge all results, deduplicate by name similarity
-    let allResults = [];
-    responses.forEach(r => { if(r.ok && r.results) allResults.push(...r.results); });
-
-    // Deduplicate — remove results with very similar names
-    const seen = new Set();
-    allResults = allResults.filter(r => {
-      const key = r.name.toLowerCase().replace(/[^a-z0-9]/g,'').substring(0,20);
-      if (seen.has(key)) return false;
-      seen.add(key);
-      return true;
-    });
-
-    // Filter out accessories/cases if main category is electronics
-    if (cat === 'electronics') {
-      allResults = allResults.filter(r =>
-        !r.name.toLowerCase().match(/case|cover|charger|cable|screen protector|tempered glass|stand|holder/i)
-      );
-    }
-
-    // Sort by rating then price
-    allResults.sort((a,b) => {
-      if (b.rating && a.rating) return (b.rating - a.rating) || (a.price - b.price);
-      return a.price - b.price;
-    });
-
-    if (!allResults.length) throw new Error('No results');
-
-    liveProdsCache[cacheKey] = allResults;
-    if (!silent) renderLiveProds(allResults);
-
-  } catch(e) {
-    if (!silent) {
-      // Fallback to hardcoded products
-      const list = cat==='all' ? PRODS : PRODS.filter(p=>p.cat===cat);
-      document.getElementById('pgrid').innerHTML = list.length
-        ? list.map(p=>cardHTML(p)).join('')
-        : '<div style="padding:60px;text-align:center;color:var(--ink3)">Could not load live products. Check your backend.</div>';
-    }
-  }
-}
-
-function renderLiveProds(results) {
-  currentLiveProds = results;
-  const g = document.getElementById('pgrid');
-  g.className = viewMode==='list' ? 'list-view' : '';
-
-  // Update AI bar count
-  const uniqueStores = new Set(results.map(r=>guessStoreId(r.store)));
-  document.getElementById('aiCount').textContent = Math.max(54, uniqueStores.size * 8);
-
-  g.innerHTML = results.map((r, idx) => {
-    const storeId = guessStoreId(r.store);
-    const sd = STORES.find(x=>x.id===storeId) || {n:r.store, col:'#'+(Math.abs(hashCode(r.store))%0xFFFFFF).toString(16).padStart(6,'0')};
-    const nm = sd.n || r.store;
-    // Use direct URL already built by backend (has affiliate tag for Amazon)
-    const buyUrl = r.link || r.googleUrl || `https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
-    const totalPrice = r.price + (r.shipping||0);
-    const inW = wishlist.some(w => w.liveIdx === idx);
-
-    if (viewMode === 'list') {
-      return `
-      <div class="pcard list" onclick="openLivePM(${idx})">
-        <div class="pc-img-wrap">
-          ${r.img ? `<img src="${r.img}" loading="lazy" onerror="this.style.background='var(--paper3)';this.style.display='none'"/>` : '<div style="width:100%;height:100%;background:var(--paper3);display:flex;align-items:center;justify-content:center;font-size:32px">🛍</div>'}
-          ${r.rating && r.rating>=4.5 ? '<div class="pc-hot">Top rated</div>' : ''}
-        </div>
-        <div class="pc-body">
-          <div class="pc-main">
-            <div class="pc-cat">${nm}</div>
-            <div class="pc-name">${r.name}</div>
-            ${r.rating ? `<div class="pc-rating"><span class="stars">${starsHTML(r.rating)}</span><span class="rcount">${r.rating}${r.reviews?' ('+Number(r.reviews).toLocaleString()+')':''}</span></div>` : ''}
-            <div class="pc-price-row">
-              <div class="pc-best">${fmt(totalPrice)}</div>
-              ${r.shipping===0 ? '<span class="pc-save-badge">Free delivery</span>' : ''}
-            </div>
-            <div class="pc-via">${nm} · ${r.shipping===0?'Free delivery':'+'+fmt(r.shipping||0)+' delivery'}</div>
-          </div>
-          <div class="pc-side-col">
-            <div class="pc-srow top"><span class="pc-sname">${nm}</span><span class="pc-ship">${r.shipping===0?'Free':'+'+fmt(r.shipping||0)}</span><span class="pc-sp top-p">${fmt(totalPrice)}</span></div>
-            <button class="pc-buybtn" onclick="event.stopPropagation();liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">Buy on ${nm}</button>
-          </div>
-        </div>
-      </div>`;
-    }
-
-    return `
-    <div class="pcard" onclick="openLivePM(${idx})">
-      <div class="pc-img-wrap">
-        ${r.img ? `<img src="${r.img}" loading="lazy" onerror="this.style.display='none'"/>` : '<div style="width:100%;height:100%;background:var(--paper3);display:flex;align-items:center;justify-content:center;font-size:32px">🛍</div>'}
-        <div class="pc-store-tag">${nm}</div>
-        ${r.rating && r.rating>=4.5 ? '<div class="pc-hot">Top rated</div>' : ''}
-        <button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleLiveW(${idx},'${r.name.replace(/'/g,"\\'").substring(0,40)}',${totalPrice},'${r.img||''}')">
-          <svg viewBox="0 0 24 24" stroke="var(--red2)" fill="${inW?'var(--red2)':'none'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </button>
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">${nm}</div>
-        <div class="pc-name">${r.name}</div>
-        ${r.rating ? `<div class="pc-rating"><span class="stars">${starsHTML(r.rating)}</span><span class="rcount">${r.rating}${r.reviews?' ('+Number(r.reviews).toLocaleString()+')':''}</span></div>` : ''}
-        <div class="pc-price-row">
-          <div class="pc-best">${fmt(totalPrice)}</div>
-          ${r.shipping===0 ? '<span class="pc-save-badge">Free</span>' : ''}
-        </div>
-        <div class="pc-via">${nm} · ${r.shipping===0?'Free delivery':'+'+fmt(r.shipping||0)}</div>
-        <div class="pc-srow top"><span class="pc-sname">${nm}</span><span class="pc-ship">${r.shipping===0?'Free':'+'+fmt(r.shipping)}</span><span class="pc-sp top-p">${fmt(totalPrice)}</span></div>
-        <button class="pc-buybtn" onclick="event.stopPropagation();liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">Buy on ${nm}</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function liveRedirect(url, store) {
-  if (!url || url === '#') { showToast('Direct link not available'); return; }
-  window.open(url, '_blank', 'noopener,noreferrer');
-  showToast(`Opening ${store}… 🛍️`);
-}
-
-function buySearchResult(url, store, price) {
-  if (!url || url === '#') { showToast('Direct link not available — try searching ' + store); return; }
-  window.open(url, '_blank', 'noopener,noreferrer');
-  showToast(`Opening ${store}… 🛍️`);
-}
-
-function toggleLiveW(idx, name, price, img) {
-  const existing = wishlist.findIndex(w => w.liveIdx===idx);
-  if (existing > -1) {
-    wishlist.splice(existing, 1);
-    showToast('Removed from wishlist');
-  } else {
-    wishlist.push({ liveIdx:idx, name, price, img });
-    showToast('Saved to wishlist ❤️');
-  }
-  Cookie.set('pricetag_wish', wishlist);
-  const wb = document.getElementById('wishBadge');
-  wb.textContent = wishlist.length;
-  wb.style.display = wishlist.length ? 'flex' : 'none';
-  renderWL();
-  renderLiveProds(currentLiveProds);
-}
-
-function openLivePM(idx) {
-  const r = currentLiveProds[idx];
-  if (!r) return;
-  const storeId = guessStoreId(r.store);
-  const sd = STORES.find(x=>x.id===storeId) || {n:r.store, col:'#888'};
-  const nm = sd.n || r.store;
-  // Use direct URL from backend (already has affiliate tag for Amazon)
-  const buyUrl = r.link || r.googleUrl || '#';
-  const total = r.price + (r.shipping||0);
-
-  document.getElementById('pmBody').innerHTML = `
-    <div class="pm-inner">
-      <div class="pm-left" style="position:relative">
-        <button class="pm-close" onclick="closePM()">✕</button>
-        ${r.img ? `<img src="${r.img}" alt="${r.name}" style="max-height:280px;object-fit:contain"/>` : '<div style="font-size:64px;text-align:center;padding:40px">🛍️</div>'}
-        <div style="margin-top:16px;text-align:center">
-          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);padding:8px 14px;font-size:12px;font-weight:600">
-            <div style="width:10px;height:10px;border-radius:2px;background:${sd.col}"></div>
-            ${nm}
-          </div>
-        </div>
-      </div>
-      <div class="pm-right">
-        <div class="pm-cat" style="display:flex;align-items:center;gap:6px">
-          ${nm}
-          <span style="display:inline-flex;align-items:center;gap:4px;background:var(--grn2);border:1px solid rgba(39,174,96,.2);border-radius:100px;padding:2px 7px;font-size:10px;font-weight:600;color:var(--grn)">
-            <span style="width:5px;height:5px;border-radius:50%;background:var(--grn);animation:blink 2s infinite;display:inline-block"></span>Live price
-          </span>
-        </div>
-        <div class="pm-name">${r.name}</div>
-        ${r.rating ? `<div class="pm-rating"><span class="stars">${starsHTML(r.rating)}</span><strong>${r.rating}</strong>${r.reviews?`<span style="color:var(--ink3);font-size:12px">(${Number(r.reviews).toLocaleString()} reviews)</span>`:''}</div>` : ''}
-        <div class="pm-price">${fmt(total)}</div>
-        <div class="pm-incl">${r.shipping===0?'✓ Free delivery':'Delivery: +'+fmt(r.shipping||0)} · Live from Google Shopping</div>
-        <div class="pm-ai-trust">
-          Price fetched live right now from ${nm}.
-          ${r.rating>=4.5?'<strong style="color:var(--grn)"> Highly rated product — good choice.</strong>':' Compare with other stores before buying.'}
-        </div>
-        <div style="background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin:14px 0">
-          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>Item price</span><span style="font-family:var(--price-font);font-weight:600">${fmt(r.price)}</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:10px"><span>Delivery</span><span style="color:${r.shipping===0?'var(--grn)':'var(--ink)'}">${r.shipping===0?'Free':fmt(r.shipping||0)}</span></div>
-          <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:var(--price-font);color:var(--gold)">${fmt(total)}</span></div>
-        </div>
-        <div class="pm-actions">
-          <button class="pma primary" onclick="liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">
-            Buy on ${nm} — ${fmt(total)}
-          </button>
-          <button class="pma secondary" style="margin-top:8px" onclick="doSearch('${r.name.replace(/'/g,"\\'").substring(0,50)}');closePM()">
-            🔍 Compare across all stores
-          </button>
-          <button class="pma secondary" style="margin-top:8px" onclick="toggleLiveW(${idx},'${r.name.replace(/'/g,"\\'").substring(0,40)}',${total},'${r.img||''}')">
-            ❤️ Save to wishlist
-          </button>
-        </div>
-      </div>
-    </div>`;
-  document.getElementById('pmOv').classList.add('open');
-}
-
-// Keep original cardHTML for fallback when backend not connected
 function cardHTML(p){
   const s=[...p.stores].filter(x=>selS.has(x.id)).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh));
   if(!s.length)return'';
@@ -2050,178 +1090,53 @@ function cardHTML(p){
   const inW=wishlist.some(w=>w.id===p.id);
   const rows=s.slice(0,3).map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.id};return`<div class="pc-srow${i===0?' top':''}"><span class="pc-sname">${d.n}</span><span class="pc-ship">${st.sh===0?'Free':'+'+fmt(st.sh)}</span><span class="pc-sp${i===0?' top-p':''}">${fmt(st.p+st.sh)}</span></div>`;}).join('');
   const wSvg=`<svg viewBox="0 0 24 24" stroke="var(--red2)" fill="${inW?'var(--red2)':'none'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+  if(viewMode==='list'){return`<div class="pcard list" onclick="openPM(${p.id})"><div class="pc-img-wrap"><img src="${p.img}" loading="lazy" onerror="this.style.display='none'"/>${p.hot?'<div class="pc-hot">Deal</div>':''}<button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleW(${p.id})">${wSvg}</button></div><div class="pc-body"><div class="pc-main"><div class="pc-cat">${p.cat}</div><div class="pc-name">${p.name}</div><div class="pc-rating"><span class="stars">${starsHTML(p.rating)}</span><span class="rcount">${p.rating} (${p.rv.toLocaleString()})</span></div><div class="pc-price-row"><div class="pc-best">${fmt(best.p+best.sh)}</div>${saves>0?`<span class="pc-save-badge">Save ${fmt(saves)}</span>`:''}</div><div class="pc-via">${sd.n} · incl. shipping · ${s.length} stores</div></div><div class="pc-side-col">${rows}<button class="pc-buybtn" onclick="event.stopPropagation();openCheckout(${p.id})">Buy now</button></div></div></div>`;}
   return`<div class="pcard" onclick="openPM(${p.id})"><div class="pc-img-wrap"><img src="${p.img}" loading="lazy" onerror="this.style.display='none'"/><div class="pc-store-tag">${sd.n}</div>${p.hot?'<div class="pc-hot">Deal</div>':''}<button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleW(${p.id})">${wSvg}</button></div><div class="pc-body"><div class="pc-cat">${p.cat}</div><div class="pc-name">${p.name}</div><div class="pc-rating"><span class="stars">${starsHTML(p.rating)}</span><span class="rcount">${p.rating} (${p.rv.toLocaleString()})</span></div><div class="pc-price-row"><div class="pc-best">${fmt(best.p+best.sh)}</div>${saves>0?`<span class="pc-save-badge">Save ${fmt(saves)}</span>`:''}</div><div class="pc-via">${sd.n} · ${s.length} stores</div>${rows}<button class="pc-buybtn" onclick="event.stopPropagation();openCheckout(${p.id})">Buy now</button></div></div>`;
 }
-
 function setView(v){viewMode=v;document.getElementById('gBtn').classList.toggle('on',v==='grid');document.getElementById('lBtn').classList.toggle('on',v==='list');renderProds(curCat);}
 function setCat(el,cat){document.querySelectorAll('.ncat').forEach(c=>c.classList.remove('on'));el.classList.add('on');const t={all:'Best deals right now',electronics:'Electronics',fashion:'Fashion',groceries:'Groceries',home:'Home',beauty:'Beauty',sports:'Sports',books:'Books',automotive:'Automotive'};document.getElementById('sectTitle').textContent=t[cat]||cat;renderProds(cat);}
 
-// Helper: simple string hash for store colour
-function hashCode(s){let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return h;}
-
-
 // ── PRODUCT MODAL ──
-async function openPM(id){
+function openPM(id){
   const p=PRODS.find(x=>x.id===id);
   if(!recentViewed.find(r=>r.id===id)){recentViewed.unshift(p);if(recentViewed.length>8)recentViewed.pop();renderRecent();}
-  // Open immediately with fallback prices
-  document.getElementById('pmOv').classList.add('open');
-  renderPM(p, p.stores);
-  // Fetch live prices and refresh
-  const live = await fetchLivePrices(p);
-  if(live !== p.stores) renderPM(p, live);
-}
-function renderPM(p, storeList){
-  const s=[...storeList].sort((a,b)=>(a.p+a.sh)-(b.p+b.sh));
-  const best=s[0];const inW=wishlist.some(w=>w.id===p.id);
-  const liveTag=s.some(x=>x.live)?`<span style="display:inline-flex;align-items:center;gap:4px;background:var(--grn2);border:1px solid rgba(39,174,96,.2);border-radius:100px;padding:2px 8px;font-size:10px;font-weight:600;color:var(--grn);margin-left:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--grn);animation:blink 2s infinite;display:inline-block"></span>Live</span>`:'';
+  const s=[...p.stores].sort((a,b)=>(a.p+a.sh)-(b.p+b.sh));
+  const best=s[0];const inW=wishlist.some(w=>w.id===id);
   document.getElementById('pmBody').innerHTML=`
     <div class="pm-inner">
       <div class="pm-left"><button class="pm-close" onclick="closePM()">&#10005;</button><img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'"/></div>
       <div class="pm-right">
         <div class="pm-cat">${p.cat}</div>
-        <div class="pm-name">${p.name}${liveTag}</div>
-        ${p.brand?`<div style="font-size:12px;font-weight:600;color:var(--ink3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">${p.brand}</div>`:''}
+        <div class="pm-name">${p.name}</div>
         <div class="pm-rating"><span class="stars" style="font-size:13px">${starsHTML(p.rating)}</span><strong>${p.rating}</strong><span style="color:var(--ink3);font-size:12px">(${p.rv.toLocaleString()} reviews)</span></div>
-        ${p.desc?`<div style="font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:12px;padding:10px 13px;background:var(--paper2);border-radius:var(--rs);border:1px solid var(--border)">${p.desc}</div>`:''}
         <div class="pm-price">${fmt(best.p+best.sh)}</div>
         <div class="pm-incl">Best price incl. shipping · ${s.length} stores compared</div>
         <div class="pm-ai-trust">AI analysis: No fake discount detected. Current price is at or near the 90-day low. <strong>Recommended time to buy.</strong></div>
         <div class="pm-stores">
-          ${s.map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.n||st.id,col:'#888'};const nm=d.n||st.n||st.id;return`<div class="pm-srow${i===0?' best-s':''}"><div class="pm-sico" style="background:${d.col}">${nm[0]}</div><div class="pm-sname">${nm}<span class="pm-sship" style="color:${st.sh===0?'var(--grn)':'var(--ink3)'}">${st.sh===0?'Free':'+'+fmt(st.sh)}</span>${st.live?'<span style="font-size:9px;color:var(--grn);margin-left:3px">●</span>':''}</div><div class="pm-sprice${i===0?' best-p':''}">${fmt(st.p+st.sh)}</div><button class="pm-sbuy" onclick="openCheckout(${p.id},'${st.id}')">Buy</button></div>`;}).join('')}
+          ${s.map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.id,col:'#888'};return`<div class="pm-srow${i===0?' best-s':''}"><div class="pm-sico" style="background:${d.col}">${d.n[0]}</div><div class="pm-sname">${d.n}<span class="pm-sship" style="color:${st.sh===0?'var(--grn)':'var(--ink3)'}">${st.sh===0?'Free ship':'+'+fmt(st.sh)+' shipping'}</span></div><div class="pm-sprice${i===0?' best-p':''}">${fmt(st.p+st.sh)}</div><button class="pm-sbuy" onclick="openCheckout(${p.id})">Buy</button></div>`;}).join('')}
         </div>
         <div class="pm-rev-title">Customer reviews</div>
-        <div class="pm-rev"><div class="pm-rev-h"><span class="pm-rev-name">Sarah M.</span><span class="stars" style="font-size:11px">★★★★★</span><span class="pm-rev-date">2 weeks ago</span></div><div class="pm-rev-txt">Found it considerably cheaper here. AI price alert worked perfectly — saved a lot!</div></div>
-        <div class="pm-rev"><div class="pm-rev-h"><span class="pm-rev-name">Rahul K.</span><span class="stars" style="font-size:11px">★★★★☆</span><span class="pm-rev-date">1 month ago</span></div><div class="pm-rev-txt">Waited for the price alert and saved significantly. Highly recommend Price Tag.</div></div>
+        <div class="pm-rev"><div class="pm-rev-h"><span class="pm-rev-name">Sarah M.</span><span class="stars" style="font-size:11px">★★★★★</span><span class="pm-rev-date">2 weeks ago</span></div><div class="pm-rev-txt">Excellent product. Found it here considerably cheaper. The AI price alert worked perfectly.</div></div>
+        <div class="pm-rev"><div class="pm-rev-h"><span class="pm-rev-name">Rahul K.</span><span class="stars" style="font-size:11px">★★★★☆</span><span class="pm-rev-date">1 month ago</span></div><div class="pm-rev-txt">Waited for the price alert and saved a significant amount compared to buying immediately. Highly recommend.</div></div>
         <div class="pm-actions">
           <button class="pma primary" onclick="openCheckout(${p.id})">Buy now — ${fmt(best.p+best.sh)}</button>
           <button class="pma secondary" onclick="toggleW(${p.id});this.textContent=wishlist.some(w=>w.id===${p.id})?'Remove from wishlist':'Save to wishlist'">${inW?'Remove from wishlist':'Save to wishlist'}</button>
-          <button class="pma secondary" onclick="setAlert(${p.id})" style="margin-top:6px">🔔 Set price alert</button>
         </div>
       </div>
-    </div>`;}
+    </div>`;
+  document.getElementById('pmOv').classList.add('open');
+}
 function closePM(e){if(!e||e.target===document.getElementById('pmOv'))document.getElementById('pmOv').classList.remove('open');}
 
-// ── CHECKOUT — AFFILIATE MODEL A + RAZORPAY MODEL B ──
-function openCheckout(id, storeId) {
+// ── CHECKOUT / BOOKING ──
+function openCheckout(id){
   document.getElementById('pmOv').classList.remove('open');
-  const p = PRODS.find(x => x.id === id);
-  checkoutProduct = p;
-  const stores = [...p.stores].sort((a,b) => (a.p+a.sh)-(b.p+b.sh));
-  const best = storeId ? stores.find(s=>s.id===storeId)||stores[0] : stores[0];
-  const sd = STORES.find(x => x.id === best.id) || {n: best.id, col:'#888'};
-
-  // If the store has a real affiliate URL — show the redirect dialog
-  if (best.buyUrl && !best.buyUrl.includes('pricetag03-21') && !best.buyUrl.includes('YOUR_FK_AFFID')) {
-    showAffiliateCheckout(p, best, sd);
-  } else {
-    // Fallback: show internal checkout with Razorpay
-    showInternalCheckout(p, best, sd);
-  }
-}
-
-function showAffiliateCheckout(p, best, sd) {
-  // Build the affiliate redirect modal
-  document.getElementById('coProduct').innerHTML = `
-    <img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/>
-    <div class="co-pinfo">
-      <div class="co-pname">${p.name}</div>
-      <div class="co-pstore">Best price at ${sd.n}</div>
-    </div>
-    <div class="co-pprice">${fmt(best.p + best.sh)}</div>`;
-
-  // Override step 1 with affiliate redirect UI
-  document.getElementById('coStep1').innerHTML = `
-    <div style="text-align:center;padding:16px 0 24px">
-      <div style="font-size:42px;margin-bottom:12px">🛒</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:8px">Ready to buy?</div>
-      <div style="font-size:13px;color:var(--ink3);line-height:1.7;max-width:340px;margin:0 auto 20px">
-        We'll take you directly to <strong>${sd.n}</strong> to complete your purchase.<br>
-        You pay on their secure site — your usual account, saved addresses, and payment methods apply.
-      </div>
-      <div style="background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;text-align:left">
-        <div style="font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Order summary</div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>${p.name.substring(0,38)}…</span><span style="font-family:var(--price-font);font-weight:600">${fmt(best.p)}</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:10px"><span>Shipping</span><span style="color:${best.sh===0?'var(--grn)':'var(--ink)'}">${best.sh===0?'Free':fmt(best.sh)}</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:var(--price-font);color:var(--gold)">${fmt(best.p+best.sh)}</span></div>
-      </div>
-      <button class="co-submit" onclick="doAffiliateRedirect('${best.buyUrl}',${p.id},'${sd.n}',${best.p+best.sh})" style="width:100%;margin-bottom:10px">
-        Continue to ${sd.n} →
-      </button>
-      <div style="font-size:11px;color:var(--ink4)">Opens in a new tab. Price Tag earns a small commission at no cost to you.</div>
-    </div>`;
-
+  const p=PRODS.find(x=>x.id===id);checkoutProduct=p;
+  const best=getBest(p);const sd=STORES.find(x=>x.id===best.id)||{n:best.id};
+  document.getElementById('coProduct').innerHTML=`<img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/><div class="co-pinfo"><div class="co-pname">${p.name}</div><div class="co-pstore">Booked via ${sd.n}</div></div><div class="co-pprice">${fmt(best.p+best.sh)}</div>`;
+  document.getElementById('coSummary').innerHTML=`<div class="co-sum-row"><span>Item price</span><span>${fmt(best.p)}</span></div><div class="co-sum-row"><span>Shipping</span><span>${best.sh===0?'Free':fmt(best.sh)}</span></div><div class="co-sum-row"><span>Retailer</span><span>${sd.n}</span></div><div class="co-sum-row total"><span>Total</span><span>${fmt(best.p+best.sh)}</span></div>`;
   goStep(1);
   document.getElementById('coOv').classList.add('open');
-  // Hide step nav for affiliate flow
-  document.querySelector('.co-steps').style.display = 'none';
-}
-
-function doAffiliateRedirect(url, productId, storeName, totalPrice) {
-  // Record the order as "Redirected"
-  const p = PRODS.find(x => x.id === productId);
-  if (p) {
-    const o = {
-      id: Date.now().toString(36).toUpperCase().slice(-6),
-      name: p.name, img: p.img,
-      store: storeName,
-      price: fmt(totalPrice),
-      date: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}),
-      status: 'Redirected to ' + storeName
-    };
-    userOrders.unshift(o);
-    Cookie.set('pricetag_orders', userOrders);
-  }
-  // Open the real store in a new tab
-  window.open(url, '_blank', 'noopener,noreferrer');
-  document.getElementById('coOv').classList.remove('open');
-  showToast(`Opening ${storeName}… good luck! 🛍️`);
-}
-
-function showInternalCheckout(p, best, sd) {
-  // Restore steps nav
-  document.querySelector('.co-steps').style.display = 'flex';
-  document.getElementById('coStep1').innerHTML = `
-    <div class="co-section-title">Delivery address</div>
-    <input class="co-field" placeholder="Full name" id="co-name" value="${userProfile.name||''}"/>
-    <input class="co-field" placeholder="Phone number" id="co-phone" value="${userProfile.phone||''}"/>
-    <input class="co-field" placeholder="Address line 1" id="co-addr1" value="${userAddresses[0]?.line1||''}"/>
-    <input class="co-field" placeholder="Address line 2 (optional)" id="co-addr2"/>
-    <div class="co-row">
-      <input class="co-field" placeholder="City" value="${userAddresses[0]?.city||''}"/>
-      <input class="co-field" placeholder="PIN / ZIP" value="${userAddresses[0]?.pin||''}"/>
-    </div>
-    <input class="co-field" placeholder="State / Region" style="margin-top:8px" value="${userAddresses[0]?.state||''}"/>
-    <button class="co-submit" style="margin-top:16px" onclick="proceedToPayment()">Continue to payment</button>`;
-
-  document.getElementById('coProduct').innerHTML = `
-    <img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/>
-    <div class="co-pinfo"><div class="co-pname">${p.name}</div><div class="co-pstore">Booked via ${sd.n}</div></div>
-    <div class="co-pprice">${fmt(best.p+best.sh)}</div>`;
-
-  document.getElementById('coSummary').innerHTML = `
-    <div class="co-sum-row"><span>Item price</span><span>${fmt(best.p)}</span></div>
-    <div class="co-sum-row"><span>Shipping</span><span>${best.sh===0?'Free':fmt(best.sh)}</span></div>
-    <div class="co-sum-row"><span>Retailer</span><span>${sd.n}</span></div>
-    <div class="co-sum-row total"><span>Total</span><span>${fmt(best.p+best.sh)}</span></div>`;
-
-  goStep(1);
-  document.getElementById('coOv').classList.add('open');
-}
-
-function proceedToPayment() {
-  // Launch Razorpay before confirming
-  if (!checkoutProduct) return;
-  const best = getBest(checkoutProduct);
-  const totalInr = Math.round((best.p + best.sh) * (curC === 'IN' ? 1 : 83.1)); // always charge in INR via Razorpay
-  doRazorpayCheckout({
-    amount: totalInr * 100, // paise
-    currency: 'INR',
-    description: checkoutProduct.name.substring(0, 50),
-    onSuccess: () => {
-      goStep(3);
-    }
-  });
 }
 function goStep(n){
   coStep=n;
@@ -2230,14 +1145,7 @@ function goStep(n){
     const el=document.getElementById('cstep'+i);
     el.classList.toggle('on',i===n);el.classList.toggle('done',i<n);
   });
-  if(n===3){
-    showToast('Order confirmed! 🎉');
-    if(checkoutProduct){
-      const best=getBest(checkoutProduct);
-      const sd=STORES.find(x=>x.id===best.id)||{n:best.id};
-      recordOrder(checkoutProduct,sd.n,fmt(best.p+best.sh));
-    }
-  }
+  if(n===3){showToast('Order placed! Track your shipment below.');}
 }
 function closeCO(e){if(!e||e.target===document.getElementById('coOv'))document.getElementById('coOv').classList.remove('open');}
 function selPay(el){document.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('on'));el.classList.add('on');}
@@ -2276,273 +1184,24 @@ function buildNotifs(){
 }
 function toggleNotif(){const d=document.getElementById('notifDrawer');closeAll2();d.classList.toggle('open');document.getElementById('dOv').classList.toggle('show',d.classList.contains('open'));if(d.classList.contains('open')){document.getElementById('notifBadge').style.display='none';}}
 
-// ── AI PANEL — Real Claude API ──
-const CLAUDE_API = 'https://api.anthropic.com/v1/messages';
-let aiChatHistory = [];
-
-async function sendAI() {
-  const v = document.getElementById('aipIn').value.trim();
-  if (!v) return;
-  const m = document.getElementById('aipMsgs');
-  m.innerHTML += `<div class="aip-m usr">${v}</div>`;
-  document.getElementById('aipIn').value = '';
-  m.scrollTop = m.scrollHeight;
-
-  // Thinking indicator
-  const thinkId = 'think-' + Date.now();
-  m.innerHTML += `<div class="aip-thinking" id="${thinkId}"><span></span><span></span><span></span></div>`;
-  m.scrollTop = m.scrollHeight;
-
-  aiChatHistory.push({ role: 'user', content: v });
-
-  try {
-    const resp = await fetch(CLAUDE_API, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `You are the AI Price Assistant for PRICE TAG, a premium AI-powered price comparison platform. You help users find the best prices, detect fake discounts, predict price drops, and optimize their shopping. Current stores monitored: Amazon, Walmart, Best Buy, Target, Costco, eBay, Nike, Apple, Samsung, Flipkart, and 44 more (54+ total). Current user currency: ${CC[curC].c} (${CC[curC].s}). Be concise, helpful, and specific. Use real price logic. You have "access" to real-time price data — respond as if you've just scanned live prices.`,
-        messages: aiChatHistory
-      })
-    });
-    const data = await resp.json();
-    const reply = data.content?.[0]?.text || 'I encountered an issue. Please try again.';
-    aiChatHistory.push({ role: 'assistant', content: reply });
-    document.getElementById(thinkId)?.remove();
-    m.innerHTML += `<div class="aip-m bot">${reply.replace(/\n/g, '<br>')}</div>`;
-    m.scrollTop = m.scrollHeight;
-  } catch (e) {
-    document.getElementById(thinkId)?.remove();
-    // Fallback to local response if API unavailable
-    const fallbacks = [
-      'I have scanned all 54 stores in real time. The best current deal is near the 90-day lowest price. Based on historical patterns I recommend buying within the next 3–5 days.',
-      'Price history shows a 12–18% drop typically occurs around major sale events. Current price is above the 3-month average — I recommend setting an alert.',
-      'I found multiple options matching your criteria. The top pick has the highest rating and is currently the cheapest across all stores I monitor. No fake discount patterns detected.',
-    ];
-    aiChatHistory.push({ role: 'assistant', content: fallbacks[Math.floor(Math.random()*fallbacks.length)] });
-    m.innerHTML += `<div class="aip-m bot">${fallbacks[Math.floor(Math.random()*fallbacks.length)]}</div>`;
-    m.scrollTop = m.scrollHeight;
-  }
-}
-function aipK(e) { if (e.key === 'Enter') sendAI(); }
+// ── AI PANEL ──
+const AI_R=['I have scanned all 54 stores in real time. The best current deal is near the 90-day lowest price. Based on historical patterns I recommend buying within the next 3–5 days before it rises again.','Price history shows a 12–18% drop typically occurs around major sale events. Current price is above the 3-month average — I recommend setting an alert at your target price.','I found 6 options matching your criteria. The top pick has a 4.8-star rating, free shipping, and is currently the cheapest across all stores I monitor. No fake discount patterns detected.','Warning: this listing inflated the original price by approximately 25% before applying a discount badge. The actual saving versus the 90-day lowest price is considerably less than advertised.','Cart optimised: purchasing from two stores gives you the best total. This saves you '+fmt(28)+' compared to buying everything from a single retailer including all shipping costs.'];
+let aiRi=0;
+function sendAI(){const v=document.getElementById('aipIn').value.trim();if(!v)return;const m=document.getElementById('aipMsgs');m.innerHTML+=`<div class="aip-m usr">${v}</div>`;document.getElementById('aipIn').value='';m.scrollTop=m.scrollHeight;setTimeout(()=>{m.innerHTML+=`<div class="aip-m bot">${AI_R[aiRi%AI_R.length]}</div>`;aiRi++;m.scrollTop=m.scrollHeight;},900);}
+function aipK(e){if(e.key==='Enter')sendAI();}
 function toggleAI(){const p=document.getElementById('aiPanel');closeAll2();p.classList.toggle('open');document.getElementById('dOv').classList.toggle('show',p.classList.contains('open'));}
 
 // ── SEARCH AUTOCOMPLETE ──
-// ══════════════════════════════════════════════════════
-// LIVE SEARCH ENGINE — searches any product in real time
-// ══════════════════════════════════════════════════════
-let searchTimer = null;
-let lastQuery = '';
-let isSearchMode = false; // true when showing search results, false when showing categories
-
-function onSearch(v) {
-  const ac = document.getElementById('nac');
-  if (!v.trim()) { ac.classList.remove('open'); return; }
-
-  // Show autocomplete suggestions from local products first
-  const local = PRODS.filter(p => p.name.toLowerCase().includes(v.toLowerCase())).slice(0, 3);
-  ac.innerHTML =
-    (local.length ? local.map(p => `
-      <div class="ac-item" onclick="doSearch('${p.name.replace(/'/g,"\\'")}')">
-        <img class="ac-img" src="${p.img}" onerror="this.style.display='none'"/>
-        <div><div class="ac-n">${p.name}</div><div class="ac-p">${fmt(getBest(p).p)}</div></div>
-      </div>`).join('') : '') +
-    `<div class="ac-item ac-search-live" onclick="doSearch('${v.replace(/'/g,"\\'")}')">
-      <div class="ac-search-ico">🔍</div>
-      <div><div class="ac-n">Search "<strong>${v}</strong>" across all stores</div>
-      <div class="ac-p" style="color:var(--ink3)">Live prices from Amazon, Flipkart, Croma & more</div></div>
-    </div>`;
+function onSearch(v){
+  const ac=document.getElementById('nac');
+  if(!v.trim()){ac.classList.remove('open');return;}
+  const m=PRODS.filter(p=>p.name.toLowerCase().includes(v.toLowerCase())).slice(0,5);
+  if(!m.length){ac.classList.remove('open');return;}
+  ac.innerHTML=m.map(p=>`<div class="ac-item" onclick="openPM(${p.id});document.getElementById('nac').classList.remove('open')"><img class="ac-img" src="${p.img}" onerror="this.style.display='none'"/><div><div class="ac-n">${p.name}</div><div class="ac-p">${fmt(getBest(p).p)}</div></div></div>`).join('');
   ac.classList.add('open');
 }
-
-function handleSK(e) {
-  const v = document.getElementById('nsearch').value.trim();
-  if (e.key === 'Enter' && v) { doSearch(v); document.getElementById('nac').classList.remove('open'); }
-  if (e.key === 'Escape') document.getElementById('nac').classList.remove('open');
-}
-
-document.addEventListener('click', e => {
-  if (!e.target.closest('.nav-search')) document.getElementById('nac').classList.remove('open');
-});
-
-// ── MAIN SEARCH FUNCTION ──
-async function doSearch(query) {
-  if (!query.trim()) return;
-  document.getElementById('nac').classList.remove('open');
-  document.getElementById('nsearch').value = query;
-  lastQuery = query;
-  isSearchMode = true;
-
-  // Update UI to show search mode
-  document.getElementById('sectTitle').textContent = `Results for "${query}"`;
-  document.querySelectorAll('.ncat').forEach(c => c.classList.remove('on'));
-
-  // Show skeletons immediately
-  showSkels();
-
-  // Scroll to results
-  document.querySelector('.main-layout').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  // Add a "Back to all products" bar
-  const content = document.querySelector('.content');
-  let backBar = document.getElementById('searchBackBar');
-  if (!backBar) {
-    backBar = document.createElement('div');
-    backBar.id = 'searchBackBar';
-    backBar.style.cssText = 'display:flex;align-items:center;gap:10px;margin-bottom:14px;padding:10px 14px;background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);font-size:12px;';
-    content.insertBefore(backBar, content.firstChild);
-  }
-  backBar.innerHTML = `
-    <button onclick="clearSearch()" style="background:none;border:1px solid var(--border);border-radius:var(--rs);padding:5px 12px;font-size:12px;font-weight:600;color:var(--ink2);cursor:pointer;">← All products</button>
-    <span style="color:var(--ink3)">Searching live prices for <strong style="color:var(--ink)">"${query}"</strong></span>
-    <span id="searchSpinner" style="margin-left:auto;font-size:11px;color:var(--gold);font-weight:600;animation:blink 1s infinite">⟳ Fetching live prices…</span>`;
-
-  try {
-    // Call backend
-    let url = `${BACKEND_URL}/api/prices?q=${encodeURIComponent(query)}&country=${curC}`;
-    const resp = await fetch(url);
-    const data = await resp.json();
-
-    if (!data.ok || !data.results?.length) {
-      showSearchEmpty(query);
-      return;
-    }
-
-    renderSearchResults(query, data.results);
-
-  } catch(e) {
-    // Backend not connected yet — show local matches + message
-    const local = PRODS.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
-    if (local.length) {
-      renderProds('all');
-      document.getElementById('sectTitle').textContent = `Results for "${query}" (local)`;
-    } else {
-      showSearchEmpty(query);
-    }
-    const spinner = document.getElementById('searchSpinner');
-    if (spinner) spinner.textContent = '⚠ Backend not connected';
-  }
-}
-
-function renderSearchResults(query, results) {
-  const spinner = document.getElementById('searchSpinner');
-  if (spinner) spinner.textContent = `✓ ${results.length} stores found`;
-
-  const g = document.getElementById('pgrid');
-  g.className = '';
-
-  // Group results by product name (cluster similar results)
-  // Each result = one store offering. We show them as individual cards.
-  g.innerHTML = results.map((r, idx) => {
-    const storeId = guessStoreId(r.store);
-    const sd = STORES.find(x => x.id === storeId) || { n: r.store, col: '#888' };
-    const nm = sd.n || r.store;
-    // Use direct URL from backend — already has affiliate tag for Amazon
-    const buyUrl = r.link || r.googleUrl || `https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
-
-    return `
-    <div class="pcard" onclick="openSearchResult(${idx})">
-      <div class="pc-img-wrap">
-        ${r.img ? `<img src="${r.img}" loading="lazy" onerror="this.src='';this.style.display='none'"/>` : '<div style="width:100%;height:100%;background:var(--paper3);display:flex;align-items:center;justify-content:center;font-size:32px">🛍</div>'}
-        <div class="pc-store-tag">${nm}</div>
-        ${r.rating ? `<div class="pc-hot" style="right:8px;left:auto">⭐ ${r.rating}</div>` : ''}
-      </div>
-      <div class="pc-body">
-        <div class="pc-cat">${r.store}</div>
-        <div class="pc-name">${r.name}</div>
-        ${r.rating ? `<div class="pc-rating"><span class="stars">${starsHTML(r.rating)}</span><span class="rcount">${r.rating}${r.reviews ? ' ('+Number(r.reviews).toLocaleString()+')' : ''}</span></div>` : ''}
-        <div class="pc-price-row">
-          <div class="pc-best">${fmt(r.price + (r.shipping||0))}</div>
-          ${r.shipping === 0 ? '<span class="pc-save-badge">Free ship</span>' : ''}
-        </div>
-        <div class="pc-via">${nm} · ${r.shipping === 0 ? 'Free delivery' : '+' + fmt(r.shipping||0) + ' delivery'}</div>
-        <button class="pc-buybtn" onclick="event.stopPropagation();buySearchResult('${buyUrl.replace(/'/g,"\\'")}','${nm}',${r.price})">
-          Buy on ${nm}
-        </button>
-      </div>
-    </div>`;
-  }).join('');
-
-  // Store results for modal
-  window._searchResults = results;
-  window._searchQuery = query;
-}
-
-function buySearchResult(url, store, price) {
-  if (url === '#' || !url) { showToast('Direct link not available — searching ' + store); return; }
-  window.open(url, '_blank', 'noopener,noreferrer');
-  showToast(`Opening ${store}… 🛍️`);
-}
-
-function openSearchResult(idx) {
-  const r = window._searchResults?.[idx];
-  if (!r) return;
-  const storeId = guessStoreId(r.store);
-  const sd = STORES.find(x => x.id === storeId) || { n: r.store, col: '#888' };
-  const isAmzn = storeId === 'amazon';
-  const buyUrl = isAmzn
-    ? `https://www.amazon.in/s?k=${encodeURIComponent(window._searchQuery||r.name)}&tag=${AMZN_TAG}&linkCode=ll2`
-    : (r.link || '#');
-
-  document.getElementById('pmBody').innerHTML = `
-    <div class="pm-inner">
-      <div class="pm-left" style="position:relative">
-        <button class="pm-close" onclick="closePM()">✕</button>
-        ${r.img ? `<img src="${r.img}" alt="${r.name}" style="max-height:280px;object-fit:contain"/>` : '<div style="font-size:64px;text-align:center">🛍️</div>'}
-        <div style="margin-top:16px;text-align:center">
-          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--paper3);border-radius:var(--rs);padding:6px 12px;font-size:12px;font-weight:600">
-            <div style="width:10px;height:10px;border-radius:2px;background:${sd.col}">${sd.n?.[0]||'?'}</div>
-            ${sd.n || r.store}
-          </div>
-        </div>
-      </div>
-      <div class="pm-right">
-        <div class="pm-cat">${r.store}</div>
-        <div class="pm-name">${r.name}</div>
-        ${r.rating ? `<div class="pm-rating"><span class="stars">${starsHTML(r.rating)}</span><strong>${r.rating}</strong>${r.reviews?`<span style="color:var(--ink3);font-size:12px">(${Number(r.reviews).toLocaleString()} reviews)</span>`:''}</div>` : ''}
-        <div class="pm-price">${fmt(r.price + (r.shipping||0))}</div>
-        <div class="pm-incl">${r.shipping===0?'Free delivery':'Delivery: '+fmt(r.shipping||0)} · Live price from ${sd.n||r.store}</div>
-        <div class="pm-ai-trust">
-          <span style="color:var(--grn)">●</span> Live price fetched just now from Google Shopping.
-          ${r.rating && r.rating >= 4.5 ? '<strong style="color:var(--grn)"> Highly rated — good time to buy.</strong>' : ' Compare with other stores before buying.'}
-        </div>
-        <div class="pm-actions" style="margin-top:20px">
-          <button class="pma primary" onclick="buySearchResult('${buyUrl.replace(/'/g,"\\'")}','${sd.n||r.store}',${r.price})">
-            Buy on ${sd.n||r.store} — ${fmt(r.price+(r.shipping||0))}
-          </button>
-          <button class="pma secondary" style="margin-top:8px" onclick="doSearch('${r.name.replace(/'/g,"\\'").substring(0,40)}');closePM()">
-            🔍 Compare across all stores
-          </button>
-        </div>
-      </div>
-    </div>`;
-  document.getElementById('pmOv').classList.add('open');
-}
-
-function showSearchEmpty(query) {
-  const spinner = document.getElementById('searchSpinner');
-  if (spinner) spinner.textContent = 'No results';
-  document.getElementById('pgrid').innerHTML = `
-    <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink3)">
-      <div style="font-size:40px;margin-bottom:12px">🔍</div>
-      <div style="font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px">No results for "${query}"</div>
-      <div style="font-size:13px;margin-bottom:20px">Try a different search term or check spelling</div>
-      <button onclick="clearSearch()" style="background:var(--ink);color:var(--paper);border:none;border-radius:var(--rs);padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;">Browse all products</button>
-    </div>`;
-}
-
-function clearSearch() {
-  isSearchMode = false;
-  lastQuery = '';
-  document.getElementById('nsearch').value = '';
-  document.getElementById('sectTitle').textContent = 'Best deals right now';
-  const backBar = document.getElementById('searchBackBar');
-  if (backBar) backBar.remove();
-  renderProds('all');
-  document.querySelectorAll('.ncat').forEach((c,i) => { if(i===0) c.classList.add('on'); });
-}
-
+function handleSK(e){if(e.key==='Enter'){showToast('Searching…');document.getElementById('nac').classList.remove('open');}if(e.key==='Escape')document.getElementById('nac').classList.remove('open');}
+document.addEventListener('click',e=>{if(!e.target.closest('.nav-search'))document.getElementById('nac').classList.remove('open');});
 
 // ── TICKER ──
 function buildTicker(){
@@ -2583,251 +1242,8 @@ checkR();window.addEventListener('resize',checkR);
 // Restore wishlist from cookie
 if(wishlist.length){const wb=document.getElementById('wishBadge');wb.textContent=wishlist.length;wb.style.display='flex';}
 
-// ── PROFILE ──
-let userProfile = Cookie.get('pricetag_profile') || { name: '', email: '', phone: '', dob: '', gender: '', display: '' };
-let userAddresses = Cookie.get('pricetag_addrs') || [];
-let userOrders = Cookie.get('pricetag_orders') || [];
-let isPro = Cookie.get('pricetag_pro') || false;
-
-function showProfile() {
-  loadProfileUI();
-  document.getElementById('mainApp').classList.remove('active');
-  document.getElementById('profilePage').style.display = 'block';
-  closeDrawers();
-}
-function closeProfile() {
-  document.getElementById('profilePage').style.display = 'none';
-  document.getElementById('mainApp').classList.add('active');
-}
-function loadProfileUI() {
-  const p = userProfile;
-  document.getElementById('pf-name').value = p.name || '';
-  document.getElementById('pf-display').value = p.display || '';
-  document.getElementById('pf-email').value = p.email || '';
-  document.getElementById('pf-phone').value = p.phone || '';
-  document.getElementById('pf-dob').value = p.dob || '';
-  document.getElementById('pf-gender').value = p.gender || '';
-  document.getElementById('profAvatarBig').textContent = (p.display || p.name || 'U')[0].toUpperCase();
-  document.getElementById('profName').textContent = p.display || p.name || 'Your Name';
-  document.getElementById('profEmail').textContent = p.email || '—';
-  if (isPro) {
-    document.getElementById('profProBadge').style.display = 'block';
-    document.getElementById('proActiveMsg').style.display = 'block';
-    document.getElementById('proUpgradeCard').style.display = 'none';
-  }
-  renderAddresses();
-  renderOrderHistory();
-  renderAlertsList();
-}
-function saveProfile() {
-  userProfile = {
-    name: document.getElementById('pf-name').value,
-    display: document.getElementById('pf-display').value,
-    email: document.getElementById('pf-email').value,
-    phone: document.getElementById('pf-phone').value,
-    dob: document.getElementById('pf-dob').value,
-    gender: document.getElementById('pf-gender').value
-  };
-  Cookie.set('pricetag_profile', userProfile);
-  document.getElementById('profAvatarBig').textContent = (userProfile.display || userProfile.name || 'U')[0].toUpperCase();
-  document.getElementById('profName').textContent = userProfile.display || userProfile.name || 'Your Name';
-  document.getElementById('profEmail').textContent = userProfile.email || '—';
-  document.getElementById('navAvatar').textContent = (userProfile.display || userProfile.name || 'U')[0].toUpperCase();
-  showToast('Profile saved ✓');
-}
-function saveAddress() {
-  const l1 = document.getElementById('addr-line1').value;
-  const city = document.getElementById('addr-city').value;
-  const state = document.getElementById('addr-state').value;
-  const pin = document.getElementById('addr-pin').value;
-  if (!l1 || !city) { showToast('Please fill address and city'); return; }
-  userAddresses.unshift({ line1: l1, city, state, pin, isDefault: userAddresses.length === 0 });
-  Cookie.set('pricetag_addrs', userAddresses);
-  document.getElementById('addr-line1').value = '';
-  document.getElementById('addr-city').value = '';
-  document.getElementById('addr-state').value = '';
-  document.getElementById('addr-pin').value = '';
-  renderAddresses();
-  showToast('Address saved ✓');
-}
-function renderAddresses() {
-  const list = document.getElementById('addrList');
-  if (!userAddresses.length) {
-    list.innerHTML = '<div class="addr-card"><div class="addr-text">No addresses yet. Add one below.</div></div>';
-    return;
-  }
-  list.innerHTML = userAddresses.map((a, i) => `
-    <div class="addr-card${a.isDefault ? ' default' : ''}">
-      <div>
-        ${a.isDefault ? '<div class="addr-tag">Default</div>' : ''}
-        <div class="addr-text">${a.line1}, ${a.city}${a.state ? ', ' + a.state : ''} ${a.pin}</div>
-      </div>
-      <div class="addr-actions">
-        ${!a.isDefault ? `<button class="addr-btn" onclick="setDefaultAddr(${i})">Set default</button>` : ''}
-        <button class="addr-btn" onclick="deleteAddr(${i})" style="color:var(--red2)">Remove</button>
-      </div>
-    </div>`).join('');
-}
-function setDefaultAddr(i) {
-  userAddresses.forEach((a, j) => a.isDefault = (j === i));
-  Cookie.set('pricetag_addrs', userAddresses);
-  renderAddresses();
-}
-function deleteAddr(i) {
-  userAddresses.splice(i, 1);
-  Cookie.set('pricetag_addrs', userAddresses);
-  renderAddresses();
-}
-function renderOrderHistory() {
-  const list = document.getElementById('orderList');
-  if (!userOrders.length) {
-    list.innerHTML = '<div style="text-align:center;padding:40px;color:var(--ink3);font-size:13px">No orders yet. Place your first order from any product.</div>';
-    return;
-  }
-  list.innerHTML = userOrders.map(o => `
-    <div class="order-card">
-      <div class="order-head">
-        <span class="order-id">Order #${o.id}</span>
-        <span class="order-status ${o.status === 'Delivered' ? 'delivered' : 'processing'}">${o.status}</span>
-      </div>
-      <div class="order-item">
-        <img src="${o.img}" onerror="this.style.display='none'" alt=""/>
-        <div class="order-info">
-          <div class="order-name">${o.name}</div>
-          <div class="order-meta">${o.store} · ${o.date}</div>
-        </div>
-        <div class="order-price">${o.price}</div>
-      </div>
-    </div>`).join('');
-}
-function renderAlertsList() {
-  const list = document.getElementById('alertList');
-  const alerts = Cookie.get('pricetag_alerts') || [];
-  if (!alerts.length) {
-    list.innerHTML = '<div style="text-align:center;padding:40px;color:var(--ink3);font-size:13px">No alerts set. Open any product and tap "Set Alert".</div>';
-    return;
-  }
-  list.innerHTML = alerts.map((a, i) => `
-    <div class="alert-card">
-      <div class="alert-ico"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-      <div class="alert-info">
-        <div class="alert-name">${a.name}</div>
-        <div class="alert-target">Alert when below ${fmt(a.target)}</div>
-      </div>
-      <button class="alert-del" onclick="removeAlert(${i})">✕</button>
-    </div>`).join('');
-}
-function removeAlert(i) {
-  const alerts = Cookie.get('pricetag_alerts') || [];
-  alerts.splice(i, 1);
-  Cookie.set('pricetag_alerts', alerts);
-  renderAlertsList();
-}
-function showProfSec(id, el) {
-  document.querySelectorAll('.prof-section').forEach(s => s.classList.remove('on'));
-  document.querySelectorAll('.pnav-item').forEach(n => n.classList.remove('on'));
-  document.getElementById('sec-' + id).classList.add('on');
-  el.classList.add('on');
-}
-function doLogout() {
-  Cookie.del('pricetag_loggedin');
-  Cookie.del('pricetag_method');
-  Cookie.del('pricetag_pro');
-  document.getElementById('profilePage').style.display = 'none';
-  document.getElementById('mainApp').classList.remove('active');
-  document.getElementById('loginPage').style.display = 'grid';
-  showToast('Signed out');
-}
-
-// ── RAZORPAY ──
-const RZP_KEY = 'rzp_test_YOUR_KEY_HERE'; // Replace with your Razorpay key
-
-function doRazorpayCheckout(opts) {
-  if (RZP_KEY === 'rzp_test_YOUR_KEY_HERE' || typeof Razorpay === 'undefined') {
-    // Demo mode — simulate success
-    opts.onSuccess();
-    return;
-  }
-  const rzp = new Razorpay({
-    key: RZP_KEY,
-    amount: opts.amount,
-    currency: opts.currency || 'INR',
-    name: 'PRICE TAG',
-    description: opts.description,
-    image: '',
-    prefill: {
-      name: userProfile.name,
-      email: userProfile.email,
-      contact: userProfile.phone
-    },
-    theme: { color: '#C9A84C' },
-    handler: opts.onSuccess
-  });
-  rzp.open();
-}
-
-function upgradePro() {
-  doRazorpayCheckout({
-    amount: 400 * 83, // $4 in paise (approx ₹332)
-    currency: 'INR',
-    description: 'Price Tag Pro — Monthly Subscription',
-    onSuccess: () => {
-      isPro = true;
-      Cookie.set('pricetag_pro', true);
-      document.getElementById('proActiveMsg').style.display = 'block';
-      document.getElementById('proUpgradeCard').style.display = 'none';
-      document.getElementById('profProBadge').style.display = 'block';
-      document.getElementById('proNavBadge').style.display = 'block';
-      document.getElementById('proNavBadge').innerHTML = '<div class="prof-badge">★ Pro</div>';
-      showToast('Welcome to Pro! 🎉 All features unlocked.');
-    }
-  });
-}
-
-// ── SAVE ORDER ON CHECKOUT ──
-function recordOrder(product, store, price) {
-  const o = {
-    id: Date.now().toString(36).toUpperCase().slice(-6),
-    name: product.name,
-    img: product.img,
-    store: store,
-    price: price,
-    date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }),
-    status: 'Processing'
-  };
-  userOrders.unshift(o);
-  Cookie.set('pricetag_orders', userOrders);
-}
-
-// ── PRICE ALERT SET ──
-function setAlert(productId) {
-  const p = PRODS.find(x => x.id === productId);
-  const best = getBest(p);
-  const target = best.p * 0.9; // 10% below current
-  const alerts = Cookie.get('pricetag_alerts') || [];
-  if (alerts.find(a => a.id === productId)) { showToast('Alert already set for this product'); return; }
-  alerts.push({ id: productId, name: p.name, target, current: best.p });
-  Cookie.set('pricetag_alerts', alerts);
-  showToast(`Alert set for ${fmt(target)} ✓`);
-}
-
-// Restore Pro state
-if (isPro) {
-  document.getElementById('profProBadge') && (document.getElementById('profProBadge').style.display = 'block');
-}
-
-// Restore dark toggle state
-if (Cookie.get('pricetag_theme') === 'dark') {
-  const dt = document.getElementById('darkToggle');
-  if (dt) dt.classList.add('on');
-}
-
-function showProfUpgrade(){showProfile();showProfSec('pro',document.querySelectorAll('.pnav-item')[4]);}
-
 // Auto-login if cookie exists
 autoLoginCheck();
-
 </script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
