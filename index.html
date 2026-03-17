@@ -4,15 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PRICE TAG — Where Smart Shopping Begins with AI</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<style>
-  /* Aptos-like numeric font — IBM Plex Mono used as Aptos fallback for numerics */
-  @font-face {
-    font-family: 'NumericDisplay';
-    src: local('Aptos'), local('Aptos Display');
-    unicode-range: U+0030-0039, U+002E, U+002C, U+0025, U+002B, U+002D;
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0D0D0D;--ink2:#3A3A3A;--ink3:#7A7A7A;--ink4:#BCBCBC;
@@ -50,9 +42,121 @@ img{display:block;max-width:100%;}
 .serif{font-family:'Cormorant Garamond',serif;}
 .f-display{font-family:'Cormorant Garamond',serif;font-weight:600;letter-spacing:-.5px;}
 
-/* ── NUMERIC FONT (Aptos) ── */
-.num{font-family:'IBM Plex Mono','Aptos','Courier New',monospace;font-variant-numeric:tabular-nums;}
-.pc-best,.pm-price,.rc-mini-p,.wi-price,.pc-sp,.co-pprice{font-family:'IBM Plex Mono','Aptos',monospace;font-variant-numeric:tabular-nums;}
+/* ══════════════════════════════════════════════
+   AMAZON-STYLE PRICE FONT
+   Amazon uses: Arial/sans-serif, bold, dark red
+   for main price. We replicate this exactly.
+══════════════════════════════════════════════ */
+:root {
+  --price-color: #B12704;        /* Amazon's exact price red */
+  --price-font: -apple-system, 'Segoe UI', Arial, sans-serif;
+  --price-symbol-size: 0.65em;   /* smaller ₹ symbol like Amazon */
+}
+[data-theme="dark"] {
+  --price-color: #FF8C69;        /* softer red for dark mode */
+}
+
+/* Card grid price — matches Amazon listing price */
+.pc-best {
+  font-family: var(--price-font) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+  letter-spacing: -.3px;
+  line-height: 1.2;
+}
+.pc-best::first-letter {
+  font-size: var(--price-symbol-size);
+  vertical-align: super;
+  font-weight: 500;
+}
+
+/* Product modal big price */
+.pm-price {
+  font-family: var(--price-font) !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+  letter-spacing: -.5px;
+  line-height: 1.1;
+  margin-bottom: 3px;
+}
+
+/* Store row prices */
+.pc-sp, .pm-sprice {
+  font-family: var(--price-font) !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+  letter-spacing: -.2px;
+}
+.pc-sp.top-p, .pm-sprice.best-p {
+  color: var(--price-color) !important;
+  font-size: 14px !important;
+}
+
+/* Wishlist price */
+.wi-price {
+  font-family: var(--price-font) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+}
+
+/* Recently viewed price */
+.rc-mini-p {
+  font-family: var(--price-font) !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+}
+
+/* Checkout price */
+.co-pprice {
+  font-family: var(--price-font) !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+}
+
+/* Autocomplete price */
+.ac-p {
+  font-family: var(--price-font) !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+}
+
+/* Save badge — Amazon green */
+.pc-save-badge {
+  background: #F0FFF4 !important;
+  color: #277843 !important;
+  border-color: rgba(39,120,67,.2) !important;
+  font-family: var(--price-font) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+}
+[data-theme="dark"] .pc-save-badge {
+  background: rgba(39,120,67,.15) !important;
+  color: #56C97B !important;
+}
+
+/* Order price in profile */
+.order-price {
+  font-family: var(--price-font) !important;
+  font-weight: 700 !important;
+  color: var(--price-color) !important;
+}
+
+/* Pro subscription price */
+.pro-price {
+  font-family: var(--price-font) !important;
+  font-weight: 800 !important;
+}
+
+/* Number class utility */
+.num {
+  font-family: var(--price-font) !important;
+  font-weight: 700 !important;
+}
+
 
 /* ── PROFILE PAGE ── */
 #profilePage{display:none;min-height:100vh;padding-bottom:80px;}
@@ -102,7 +206,7 @@ img{display:block;max-width:100%;}
 .order-info{flex:1;}
 .order-name{font-size:13px;font-weight:500;margin-bottom:2px;}
 .order-meta{font-size:11px;color:var(--ink3);}
-.order-price{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:var(--ink);}
+.order-price{font-family:var(--price-font);font-size:14px;font-weight:600;color:var(--ink);}
 .alert-card{background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:12px 15px;margin-bottom:8px;display:flex;align-items:center;gap:12px;}
 .alert-ico{width:34px;height:34px;border-radius:50%;background:var(--gold4);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .alert-ico svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2;}
@@ -124,7 +228,7 @@ img{display:block;max-width:100%;}
 .pro-card{background:linear-gradient(135deg,#0A0A08 0%,#1A160A 100%);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:24px;margin-bottom:16px;}
 .pro-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:4px;}
 .pro-sub{font-size:12px;color:rgba(250,250,248,.5);margin-bottom:16px;}
-.pro-price{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:#FAFAF8;margin-bottom:4px;}
+.pro-price{font-family:var(--price-font);font-size:28px;font-weight:600;color:#FAFAF8;margin-bottom:4px;}
 .pro-price span{font-size:14px;font-weight:400;color:rgba(250,250,248,.4);}
 .pro-features{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
 .pro-feat{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(250,250,248,.7);}
@@ -389,7 +493,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 .stars{color:#C9A84C;font-size:11px;}
 .rcount{font-size:10px;color:var(--ink4);}
 .pc-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:3px;}
-.pc-best{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink);}
+.pc-best{font-size:20px;font-weight:700;color:var(--price-color);}
 .pc-orig{font-size:12px;color:var(--ink4);text-decoration:line-through;}
 .pc-save-badge{font-size:10px;font-weight:600;background:rgba(39,174,96,.1);color:var(--grn);padding:2px 6px;border-radius:3px;border:1px solid rgba(39,174,96,.15);}
 .pc-via{font-size:11px;color:var(--ink4);margin-bottom:10px;}
@@ -437,7 +541,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 .pm-cat{font-size:10px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;}
 .pm-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.2;margin-bottom:10px;}
 .pm-rating{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13px;}
-.pm-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.pm-price{font-size:28px;font-weight:700;color:var(--price-color);margin-bottom:3px;}
 .pm-incl{font-size:12px;color:var(--ink3);margin-bottom:14px;}
 
 /* AI trust box */
@@ -1649,19 +1753,294 @@ function selectAll(){selS=new Set(STORES.map(s=>s.id));buildStores();renderProds
 function updateRange(v){document.getElementById('rMax').textContent=fmt(Number(v));document.getElementById('rMin').textContent=fmt(0);}
 
 // ── PRODUCTS ──
-function showSkels(){document.getElementById('pgrid').innerHTML=Array(8).fill(0).map(()=>`<div class="sk-card"><div class="sk-img"></div><div class="sk-body"><div class="skl" style="height:10px;width:35%;margin-bottom:8px"></div><div class="skl" style="height:13px;width:80%"></div><div class="skl" style="height:13px;width:60%;margin-bottom:12px"></div><div class="skl" style="height:22px;width:45%;margin-bottom:8px"></div><div class="skl" style="height:32px;border-radius:8px"></div></div></div>`).join('');}
-function getBest(p){const a=[...p.stores].filter(s=>selS.has(s.id));return(a.length?a:p.stores).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh))[0];}
-function starsHTML(r){return'★'.repeat(Math.floor(r))+'☆'.repeat(5-Math.floor(r));}
-function renderProds(cat){
-  curCat=cat;showSkels();
-  setTimeout(()=>{
-    const list=cat==='all'?PRODS:PRODS.filter(p=>p.cat===cat);
-    const g=document.getElementById('pgrid');
-    g.className=viewMode==='list'?'list-view':'';
-    if(!list.length){g.innerHTML='<div style="padding:60px;text-align:center;color:var(--ink3)">No products found.</div>';return;}
-    g.innerHTML=list.map(p=>cardHTML(p)).join('');
-  },460);
+// ══════════════════════════════════════════════════════
+// LIVE PRODUCT ENGINE — auto-fetches real products
+// from SerpApi Google Shopping on every category click
+// ══════════════════════════════════════════════════════
+
+// Category → search query mapping (India-optimised)
+const CAT_QUERIES = {
+  all:        ['best deals India today', 'top selling products India', 'trending gadgets India 2025'],
+  electronics:['best smartphones India 2025', 'laptops under 60000 India', 'wireless earphones India', 'smart tv India deals', 'smartwatch India 2025'],
+  fashion:    ['Nike Adidas shoes India', 'mens shirts India trending', 'womens fashion India top brands', 'sneakers India 2025'],
+  groceries:  ['daily essentials grocery India', 'organic food products India', 'instant food snacks India'],
+  home:       ['home appliances India best price', 'kitchen appliances India', 'vacuum cleaner India', 'air purifier India'],
+  beauty:     ['skincare face cream India', 'hair care products India', 'makeup beauty India top brands'],
+  sports:     ['cricket bat India', 'football shoes India', 'gym fitness equipment India', 'yoga mat India'],
+  books:      ['bestselling books India 2025', 'self help books India', 'engineering books India'],
+  automotive: ['car accessories India', 'bike accessories India', 'tyre India best price'],
+};
+
+// Live products cache — avoids re-fetching same category
+const liveProdsCache = {};
+let currentLiveProds = []; // holds the currently displayed live products
+
+function showSkels(n=8){
+  document.getElementById('pgrid').innerHTML = Array(n).fill(0).map(()=>`
+    <div class="sk-card">
+      <div class="sk-img"></div>
+      <div class="sk-body">
+        <div class="skl" style="height:10px;width:35%;margin-bottom:8px"></div>
+        <div class="skl" style="height:13px;width:80%"></div>
+        <div class="skl" style="height:13px;width:60%;margin-bottom:12px"></div>
+        <div class="skl" style="height:22px;width:45%;margin-bottom:8px"></div>
+        <div class="skl" style="height:32px;border-radius:8px"></div>
+      </div>
+    </div>`).join('');
 }
+
+function getBest(p){
+  const a=[...p.stores].filter(s=>selS.has(s.id));
+  return(a.length?a:p.stores).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh))[0];
+}
+function starsHTML(r){return'★'.repeat(Math.floor(r))+'☆'.repeat(5-Math.floor(r));}
+
+async function renderProds(cat) {
+  curCat = cat;
+  isSearchMode = false;
+  const backBar = document.getElementById('searchBackBar');
+  if (backBar) backBar.remove();
+
+  // Show skeletons immediately
+  showSkels(12);
+  document.getElementById('pgrid').className = viewMode==='list' ? 'list-view' : '';
+
+  // If backend not configured — fall back to hardcoded products
+  if (!BACKEND_URL || BACKEND_URL === 'YOUR_VERCEL_URL_HERE') {
+    setTimeout(() => {
+      const list = cat==='all' ? PRODS : PRODS.filter(p=>p.cat===cat);
+      document.getElementById('pgrid').innerHTML = list.length
+        ? list.map(p=>cardHTML(p)).join('')
+        : '<div style="padding:60px;text-align:center;color:var(--ink3)">No products found.</div>';
+    }, 460);
+    return;
+  }
+
+  // Check cache first
+  const cacheKey = `${cat}_${curC}`;
+  if (liveProdsCache[cacheKey]) {
+    renderLiveProds(liveProdsCache[cacheKey]);
+    // Refresh in background silently
+    fetchAndRenderLive(cat, cacheKey, true);
+    return;
+  }
+
+  await fetchAndRenderLive(cat, cacheKey, false);
+}
+
+async function fetchAndRenderLive(cat, cacheKey, silent) {
+  try {
+    const queries = CAT_QUERIES[cat] || CAT_QUERIES['all'];
+    // Pick 2 random queries for variety
+    const picked = queries.sort(()=>Math.random()-.5).slice(0, 2);
+
+    // Fetch both queries in parallel
+    const fetches = picked.map(q =>
+      fetch(`${BACKEND_URL}/api/prices?q=${encodeURIComponent(q)}&country=${curC}`)
+        .then(r => r.json()).catch(()=>({ok:false,results:[]}))
+    );
+    const responses = await Promise.all(fetches);
+
+    // Merge all results, deduplicate by name similarity
+    let allResults = [];
+    responses.forEach(r => { if(r.ok && r.results) allResults.push(...r.results); });
+
+    // Deduplicate — remove results with very similar names
+    const seen = new Set();
+    allResults = allResults.filter(r => {
+      const key = r.name.toLowerCase().replace(/[^a-z0-9]/g,'').substring(0,20);
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+    // Filter out accessories/cases if main category is electronics
+    if (cat === 'electronics') {
+      allResults = allResults.filter(r =>
+        !r.name.toLowerCase().match(/case|cover|charger|cable|screen protector|tempered glass|stand|holder/i)
+      );
+    }
+
+    // Sort by rating then price
+    allResults.sort((a,b) => {
+      if (b.rating && a.rating) return (b.rating - a.rating) || (a.price - b.price);
+      return a.price - b.price;
+    });
+
+    if (!allResults.length) throw new Error('No results');
+
+    liveProdsCache[cacheKey] = allResults;
+    if (!silent) renderLiveProds(allResults);
+
+  } catch(e) {
+    if (!silent) {
+      // Fallback to hardcoded products
+      const list = cat==='all' ? PRODS : PRODS.filter(p=>p.cat===cat);
+      document.getElementById('pgrid').innerHTML = list.length
+        ? list.map(p=>cardHTML(p)).join('')
+        : '<div style="padding:60px;text-align:center;color:var(--ink3)">Could not load live products. Check your backend.</div>';
+    }
+  }
+}
+
+function renderLiveProds(results) {
+  currentLiveProds = results;
+  const g = document.getElementById('pgrid');
+  g.className = viewMode==='list' ? 'list-view' : '';
+
+  // Update AI bar count
+  const uniqueStores = new Set(results.map(r=>guessStoreId(r.store)));
+  document.getElementById('aiCount').textContent = Math.max(54, uniqueStores.size * 8);
+
+  g.innerHTML = results.map((r, idx) => {
+    const storeId = guessStoreId(r.store);
+    const sd = STORES.find(x=>x.id===storeId) || {n:r.store, col:'#'+(Math.abs(hashCode(r.store))%0xFFFFFF).toString(16).padStart(6,'0')};
+    const nm = sd.n || r.store;
+    // Use direct URL already built by backend (has affiliate tag for Amazon)
+    const buyUrl = r.link || r.googleUrl || `https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
+    const totalPrice = r.price + (r.shipping||0);
+    const inW = wishlist.some(w => w.liveIdx === idx);
+
+    if (viewMode === 'list') {
+      return `
+      <div class="pcard list" onclick="openLivePM(${idx})">
+        <div class="pc-img-wrap">
+          ${r.img ? `<img src="${r.img}" loading="lazy" onerror="this.style.background='var(--paper3)';this.style.display='none'"/>` : '<div style="width:100%;height:100%;background:var(--paper3);display:flex;align-items:center;justify-content:center;font-size:32px">🛍</div>'}
+          ${r.rating && r.rating>=4.5 ? '<div class="pc-hot">Top rated</div>' : ''}
+        </div>
+        <div class="pc-body">
+          <div class="pc-main">
+            <div class="pc-cat">${nm}</div>
+            <div class="pc-name">${r.name}</div>
+            ${r.rating ? `<div class="pc-rating"><span class="stars">${starsHTML(r.rating)}</span><span class="rcount">${r.rating}${r.reviews?' ('+Number(r.reviews).toLocaleString()+')':''}</span></div>` : ''}
+            <div class="pc-price-row">
+              <div class="pc-best">${fmt(totalPrice)}</div>
+              ${r.shipping===0 ? '<span class="pc-save-badge">Free delivery</span>' : ''}
+            </div>
+            <div class="pc-via">${nm} · ${r.shipping===0?'Free delivery':'+'+fmt(r.shipping||0)+' delivery'}</div>
+          </div>
+          <div class="pc-side-col">
+            <div class="pc-srow top"><span class="pc-sname">${nm}</span><span class="pc-ship">${r.shipping===0?'Free':'+'+fmt(r.shipping||0)}</span><span class="pc-sp top-p">${fmt(totalPrice)}</span></div>
+            <button class="pc-buybtn" onclick="event.stopPropagation();liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">Buy on ${nm}</button>
+          </div>
+        </div>
+      </div>`;
+    }
+
+    return `
+    <div class="pcard" onclick="openLivePM(${idx})">
+      <div class="pc-img-wrap">
+        ${r.img ? `<img src="${r.img}" loading="lazy" onerror="this.style.display='none'"/>` : '<div style="width:100%;height:100%;background:var(--paper3);display:flex;align-items:center;justify-content:center;font-size:32px">🛍</div>'}
+        <div class="pc-store-tag">${nm}</div>
+        ${r.rating && r.rating>=4.5 ? '<div class="pc-hot">Top rated</div>' : ''}
+        <button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleLiveW(${idx},'${r.name.replace(/'/g,"\\'").substring(0,40)}',${totalPrice},'${r.img||''}')">
+          <svg viewBox="0 0 24 24" stroke="var(--red2)" fill="${inW?'var(--red2)':'none'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+      </div>
+      <div class="pc-body">
+        <div class="pc-cat">${nm}</div>
+        <div class="pc-name">${r.name}</div>
+        ${r.rating ? `<div class="pc-rating"><span class="stars">${starsHTML(r.rating)}</span><span class="rcount">${r.rating}${r.reviews?' ('+Number(r.reviews).toLocaleString()+')':''}</span></div>` : ''}
+        <div class="pc-price-row">
+          <div class="pc-best">${fmt(totalPrice)}</div>
+          ${r.shipping===0 ? '<span class="pc-save-badge">Free</span>' : ''}
+        </div>
+        <div class="pc-via">${nm} · ${r.shipping===0?'Free delivery':'+'+fmt(r.shipping||0)}</div>
+        <div class="pc-srow top"><span class="pc-sname">${nm}</span><span class="pc-ship">${r.shipping===0?'Free':'+'+fmt(r.shipping)}</span><span class="pc-sp top-p">${fmt(totalPrice)}</span></div>
+        <button class="pc-buybtn" onclick="event.stopPropagation();liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">Buy on ${nm}</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function liveRedirect(url, store) {
+  if (!url || url === '#') { showToast('Direct link not available'); return; }
+  window.open(url, '_blank', 'noopener,noreferrer');
+  showToast(`Opening ${store}… 🛍️`);
+}
+
+function buySearchResult(url, store, price) {
+  if (!url || url === '#') { showToast('Direct link not available — try searching ' + store); return; }
+  window.open(url, '_blank', 'noopener,noreferrer');
+  showToast(`Opening ${store}… 🛍️`);
+}
+
+function toggleLiveW(idx, name, price, img) {
+  const existing = wishlist.findIndex(w => w.liveIdx===idx);
+  if (existing > -1) {
+    wishlist.splice(existing, 1);
+    showToast('Removed from wishlist');
+  } else {
+    wishlist.push({ liveIdx:idx, name, price, img });
+    showToast('Saved to wishlist ❤️');
+  }
+  Cookie.set('pricetag_wish', wishlist);
+  const wb = document.getElementById('wishBadge');
+  wb.textContent = wishlist.length;
+  wb.style.display = wishlist.length ? 'flex' : 'none';
+  renderWL();
+  renderLiveProds(currentLiveProds);
+}
+
+function openLivePM(idx) {
+  const r = currentLiveProds[idx];
+  if (!r) return;
+  const storeId = guessStoreId(r.store);
+  const sd = STORES.find(x=>x.id===storeId) || {n:r.store, col:'#888'};
+  const nm = sd.n || r.store;
+  // Use direct URL from backend (already has affiliate tag for Amazon)
+  const buyUrl = r.link || r.googleUrl || '#';
+  const total = r.price + (r.shipping||0);
+
+  document.getElementById('pmBody').innerHTML = `
+    <div class="pm-inner">
+      <div class="pm-left" style="position:relative">
+        <button class="pm-close" onclick="closePM()">✕</button>
+        ${r.img ? `<img src="${r.img}" alt="${r.name}" style="max-height:280px;object-fit:contain"/>` : '<div style="font-size:64px;text-align:center;padding:40px">🛍️</div>'}
+        <div style="margin-top:16px;text-align:center">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);padding:8px 14px;font-size:12px;font-weight:600">
+            <div style="width:10px;height:10px;border-radius:2px;background:${sd.col}"></div>
+            ${nm}
+          </div>
+        </div>
+      </div>
+      <div class="pm-right">
+        <div class="pm-cat" style="display:flex;align-items:center;gap:6px">
+          ${nm}
+          <span style="display:inline-flex;align-items:center;gap:4px;background:var(--grn2);border:1px solid rgba(39,174,96,.2);border-radius:100px;padding:2px 7px;font-size:10px;font-weight:600;color:var(--grn)">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--grn);animation:blink 2s infinite;display:inline-block"></span>Live price
+          </span>
+        </div>
+        <div class="pm-name">${r.name}</div>
+        ${r.rating ? `<div class="pm-rating"><span class="stars">${starsHTML(r.rating)}</span><strong>${r.rating}</strong>${r.reviews?`<span style="color:var(--ink3);font-size:12px">(${Number(r.reviews).toLocaleString()} reviews)</span>`:''}</div>` : ''}
+        <div class="pm-price">${fmt(total)}</div>
+        <div class="pm-incl">${r.shipping===0?'✓ Free delivery':'Delivery: +'+fmt(r.shipping||0)} · Live from Google Shopping</div>
+        <div class="pm-ai-trust">
+          Price fetched live right now from ${nm}.
+          ${r.rating>=4.5?'<strong style="color:var(--grn)"> Highly rated product — good choice.</strong>':' Compare with other stores before buying.'}
+        </div>
+        <div style="background:var(--paper2);border:1px solid var(--border);border-radius:var(--rs);padding:12px 14px;margin:14px 0">
+          <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px"><span>Item price</span><span style="font-family:var(--price-font);font-weight:600">${fmt(r.price)}</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:10px"><span>Delivery</span><span style="color:${r.shipping===0?'var(--grn)':'var(--ink)'}">${r.shipping===0?'Free':fmt(r.shipping||0)}</span></div>
+          <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:var(--price-font);color:var(--gold)">${fmt(total)}</span></div>
+        </div>
+        <div class="pm-actions">
+          <button class="pma primary" onclick="liveRedirect('${buyUrl.replace(/'/g,"\\'")}','${nm}')">
+            Buy on ${nm} — ${fmt(total)}
+          </button>
+          <button class="pma secondary" style="margin-top:8px" onclick="doSearch('${r.name.replace(/'/g,"\\'").substring(0,50)}');closePM()">
+            🔍 Compare across all stores
+          </button>
+          <button class="pma secondary" style="margin-top:8px" onclick="toggleLiveW(${idx},'${r.name.replace(/'/g,"\\'").substring(0,40)}',${total},'${r.img||''}')">
+            ❤️ Save to wishlist
+          </button>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('pmOv').classList.add('open');
+}
+
+// Keep original cardHTML for fallback when backend not connected
 function cardHTML(p){
   const s=[...p.stores].filter(x=>selS.has(x.id)).sort((a,b)=>(a.p+a.sh)-(b.p+b.sh));
   if(!s.length)return'';
@@ -1671,11 +2050,15 @@ function cardHTML(p){
   const inW=wishlist.some(w=>w.id===p.id);
   const rows=s.slice(0,3).map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.id};return`<div class="pc-srow${i===0?' top':''}"><span class="pc-sname">${d.n}</span><span class="pc-ship">${st.sh===0?'Free':'+'+fmt(st.sh)}</span><span class="pc-sp${i===0?' top-p':''}">${fmt(st.p+st.sh)}</span></div>`;}).join('');
   const wSvg=`<svg viewBox="0 0 24 24" stroke="var(--red2)" fill="${inW?'var(--red2)':'none'}" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
-  if(viewMode==='list'){return`<div class="pcard list" onclick="openPM(${p.id})"><div class="pc-img-wrap"><img src="${p.img}" loading="lazy" onerror="this.style.display='none'"/>${p.hot?'<div class="pc-hot">Deal</div>':''}<button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleW(${p.id})">${wSvg}</button></div><div class="pc-body"><div class="pc-main"><div class="pc-cat">${p.cat}</div><div class="pc-name">${p.name}</div><div class="pc-rating"><span class="stars">${starsHTML(p.rating)}</span><span class="rcount">${p.rating} (${p.rv.toLocaleString()})</span></div><div class="pc-price-row"><div class="pc-best">${fmt(best.p+best.sh)}</div>${saves>0?`<span class="pc-save-badge">Save ${fmt(saves)}</span>`:''}</div><div class="pc-via">${sd.n} · incl. shipping · ${s.length} stores</div></div><div class="pc-side-col">${rows}<button class="pc-buybtn" onclick="event.stopPropagation();openCheckout(${p.id})">Buy now</button></div></div></div>`;}
   return`<div class="pcard" onclick="openPM(${p.id})"><div class="pc-img-wrap"><img src="${p.img}" loading="lazy" onerror="this.style.display='none'"/><div class="pc-store-tag">${sd.n}</div>${p.hot?'<div class="pc-hot">Deal</div>':''}<button class="pc-wish${inW?' on':''}" onclick="event.stopPropagation();toggleW(${p.id})">${wSvg}</button></div><div class="pc-body"><div class="pc-cat">${p.cat}</div><div class="pc-name">${p.name}</div><div class="pc-rating"><span class="stars">${starsHTML(p.rating)}</span><span class="rcount">${p.rating} (${p.rv.toLocaleString()})</span></div><div class="pc-price-row"><div class="pc-best">${fmt(best.p+best.sh)}</div>${saves>0?`<span class="pc-save-badge">Save ${fmt(saves)}</span>`:''}</div><div class="pc-via">${sd.n} · ${s.length} stores</div>${rows}<button class="pc-buybtn" onclick="event.stopPropagation();openCheckout(${p.id})">Buy now</button></div></div>`;
 }
+
 function setView(v){viewMode=v;document.getElementById('gBtn').classList.toggle('on',v==='grid');document.getElementById('lBtn').classList.toggle('on',v==='list');renderProds(curCat);}
 function setCat(el,cat){document.querySelectorAll('.ncat').forEach(c=>c.classList.remove('on'));el.classList.add('on');const t={all:'Best deals right now',electronics:'Electronics',fashion:'Fashion',groceries:'Groceries',home:'Home',beauty:'Beauty',sports:'Sports',books:'Books',automotive:'Automotive'};document.getElementById('sectTitle').textContent=t[cat]||cat;renderProds(cat);}
+
+// Helper: simple string hash for store colour
+function hashCode(s){let h=0;for(let i=0;i<s.length;i++)h=Math.imul(31,h)+s.charCodeAt(i)|0;return h;}
+
 
 // ── PRODUCT MODAL ──
 async function openPM(id){
@@ -1758,9 +2141,9 @@ function showAffiliateCheckout(p, best, sd) {
       </div>
       <div style="background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;text-align:left">
         <div style="font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Order summary</div>
-        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>${p.name.substring(0,38)}…</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">${fmt(best.p)}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>${p.name.substring(0,38)}…</span><span style="font-family:var(--price-font);font-weight:600">${fmt(best.p)}</span></div>
         <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:10px"><span>Shipping</span><span style="color:${best.sh===0?'var(--grn)':'var(--ink)'}">${best.sh===0?'Free':fmt(best.sh)}</span></div>
-        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--gold)">${fmt(best.p+best.sh)}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:var(--price-font);color:var(--gold)">${fmt(best.p+best.sh)}</span></div>
       </div>
       <button class="co-submit" onclick="doAffiliateRedirect('${best.buyUrl}',${p.id},'${sd.n}',${best.p+best.sh})" style="width:100%;margin-bottom:10px">
         Continue to ${sd.n} →
@@ -2055,11 +2438,8 @@ function renderSearchResults(query, results) {
     const storeId = guessStoreId(r.store);
     const sd = STORES.find(x => x.id === storeId) || { n: r.store, col: '#888' };
     const nm = sd.n || r.store;
-    const isAmzn = storeId === 'amazon';
-    // Build affiliate URL for Amazon results
-    const buyUrl = isAmzn
-      ? `https://www.amazon.in/s?k=${encodeURIComponent(query)}&tag=${AMZN_TAG}&linkCode=ll2`
-      : (r.link || '#');
+    // Use direct URL from backend — already has affiliate tag for Amazon
+    const buyUrl = r.link || r.googleUrl || `https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
 
     return `
     <div class="pcard" onclick="openSearchResult(${idx})">
