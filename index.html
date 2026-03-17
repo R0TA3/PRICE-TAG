@@ -795,7 +795,21 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 ═══════════════════════════════════════════ -->
 <div id="mainApp" class="page">
 
-  <!-- AI SYNC BAR -->
+  <!-- SETUP GUIDE — Only visible until affiliate tags are configured -->
+  <div id="setupGuide" style="background:linear-gradient(135deg,#1a0a00,#2a1500);border-bottom:1px solid rgba(201,168,76,.3);padding:14px 32px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="font-size:18px">⚙️</div>
+    <div style="flex:1">
+      <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:2px">OWNER SETUP — 3 steps to go fully live</div>
+      <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">
+        <strong style="color:rgba(255,255,255,.75)">Step 1 — Amazon Affiliate:</strong> Sign up at affiliate-program.amazon.in → get your tag (e.g. pricetag-21) → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">YOUR_AMAZON_TAG</code> in the JS &nbsp;|&nbsp;
+        <strong style="color:rgba(255,255,255,.75)">Step 2 — Flipkart:</strong> affiliate.flipkart.com → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">YOUR_FK_AFFID</code> &nbsp;|&nbsp;
+        <strong style="color:rgba(255,255,255,.75)">Step 3 — Razorpay:</strong> razorpay.com → Settings → API Keys → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">rzp_test_YOUR_KEY_HERE</code>
+      </div>
+    </div>
+    <button onclick="document.getElementById('setupGuide').style.display='none'" style="background:none;border:1px solid rgba(255,255,255,.2);border-radius:4px;padding:5px 10px;font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;white-space:nowrap">Hide</button>
+  </div>
+
+
   <div id="aiBar">
     <div class="ai-dot"></div>
     <div class="ai-txt">AI database <span class="ai-live">live</span> — syncing <strong id="aiCount">54</strong> stores in real time</div>
@@ -1306,21 +1320,172 @@ const STORES=[
 ];
 let selS=new Set(STORES.map(s=>s.id));
 
-// ── PRODUCTS (clean, no specific brands in descriptions) ──
-const IMGS={a:'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80',b:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',c:'https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80',d:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',e:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',f:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',g:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',h:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80',i:'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&q=80',j:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80',k:'https://images.unsplash.com/photo-1614632537190-23e4e2898b88?w=400&q=80',l:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80'};
-const PRODS=[
-  {id:1,name:'Smartphone Pro 256GB — Titanium Edition',cat:'electronics',img:IMGS.a,rating:4.8,rv:12840,hot:true,stores:[{id:'costco',p:989,sh:0},{id:'amazon',p:999,sh:0},{id:'bestbuy',p:1049,sh:0},{id:'walmart',p:1079,sh:5},{id:'target',p:1099,sh:0},{id:'apple',p:1099,sh:0}]},
-  {id:2,name:'Premium Running Sneakers — Black / White',cat:'fashion',img:IMGS.b,rating:4.6,rv:8420,stores:[{id:'nike',p:130,sh:0},{id:'amazon',p:142,sh:0},{id:'walmart',p:138,sh:5},{id:'target',p:148,sh:5},{id:'zappos',p:155,sh:0}]},
-  {id:3,name:'65-inch QLED 4K Smart Television',cat:'electronics',img:IMGS.c,rating:4.7,rv:6320,hot:true,stores:[{id:'costco',p:749,sh:0},{id:'samsung',p:799,sh:0},{id:'walmart',p:819,sh:0},{id:'amazon',p:829,sh:0},{id:'bestbuy',p:849,sh:0}]},
-  {id:4,name:'Ultra-thin Laptop M2 — 13" 8GB 256GB',cat:'electronics',img:IMGS.d,rating:4.9,rv:22100,stores:[{id:'costco',p:1029,sh:0},{id:'amazon',p:1049,sh:0},{id:'walmart',p:1079,sh:0},{id:'bestbuy',p:1099,sh:0},{id:'apple',p:1099,sh:0}]},
-  {id:5,name:'Wireless Noise-Cancelling Headphones — Over Ear',cat:'electronics',img:IMGS.e,rating:4.8,rv:34200,hot:true,stores:[{id:'costco',p:269,sh:0},{id:'amazon',p:279,sh:0},{id:'walmart',p:289,sh:0},{id:'bestbuy',p:299,sh:0},{id:'target',p:299,sh:0}]},
-  {id:6,name:'Smart Watch GPS 45mm — Midnight Aluminium',cat:'electronics',img:IMGS.f,rating:4.7,rv:9870,stores:[{id:'costco',p:399,sh:0},{id:'amazon',p:409,sh:0},{id:'target',p:419,sh:5},{id:'bestbuy',p:429,sh:0},{id:'apple',p:429,sh:0}]},
-  {id:7,name:'Cordless Vacuum Cleaner — High Performance',cat:'home',img:IMGS.g,rating:4.9,rv:7650,stores:[{id:'amazon',p:599,sh:0},{id:'walmart',p:619,sh:0},{id:'bestbuy',p:629,sh:0},{id:'homedepo',p:649,sh:0},{id:'target',p:649,sh:6}]},
-  {id:8,name:'Moisturising Face Cream 454g — All Skin Types',cat:'beauty',img:IMGS.h,rating:4.8,rv:89200,stores:[{id:'costco',p:12.99,sh:0},{id:'walmart',p:13.88,sh:0},{id:'amazon',p:14.99,sh:0},{id:'target',p:15.49,sh:0}]},
-  {id:9,name:'Organic Whole Milk 1 Gallon — Grass Fed',cat:'groceries',img:IMGS.i,rating:4.5,rv:3400,stores:[{id:'costco',p:3.99,sh:0},{id:'walmart',p:4.28,sh:3},{id:'target',p:4.99,sh:3.5},{id:'amazon',p:5.49,sh:0}]},
-  {id:10,name:'Bestselling Self-Help Book — Paperback',cat:'books',img:IMGS.j,rating:4.9,rv:127000,stores:[{id:'ebay',p:9.99,sh:4},{id:'amazon',p:11.98,sh:0},{id:'walmart',p:12.88,sh:0},{id:'target',p:14.99,sh:5}]},
-  {id:11,name:'Professional Match Ball — Size 5',cat:'sports',img:IMGS.k,rating:4.6,rv:2100,stores:[{id:'ebay',p:32,sh:6},{id:'walmart',p:34.99,sh:5},{id:'amazon',p:39.99,sh:0},{id:'target',p:44.99,sh:0}]},
-  {id:12,name:'Performance All-Season Tyre 245/45R18',cat:'automotive',img:IMGS.l,rating:4.8,rv:5620,stores:[{id:'ebay',p:159,sh:12},{id:'costco',p:169,sh:0},{id:'newegg',p:175,sh:5},{id:'walmart',p:179,sh:8},{id:'amazon',p:189,sh:0}]},
+// ─────────────────────────────────────────────
+// REAL PRODUCTS — Affiliate links to live stores
+// Fill in AMZN_TAG and FK_AFFID below with your IDs
+// ─────────────────────────────────────────────
+const AMZN_TAG = 'YOUR_AMAZON_TAG';   // e.g. 'pricetag-21' from affiliate-program.amazon.in
+const FK_AFFID  = 'YOUR_FK_AFFID';    // from affiliate.flipkart.com
+function amzn(asin){ return `https://www.amazon.in/dp/${asin}?tag=${AMZN_TAG}&linkCode=ll1`; }
+function fk(path){ return `https://www.flipkart.com${path}&affid=${FK_AFFID}`; }
+
+const PRODS = [
+  {id:1, name:'Apple iPhone 15 128GB — Black', brand:'Apple', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&q=80',
+   rating:4.7, rv:18240, hot:true,
+   desc:'Dynamic Island, 48MP camera, USB-C, A16 Bionic chip, Ceramic Shield.',
+   stores:[
+     {id:'amazon',   p:72900, sh:0, buyUrl:amzn('B0CHX3QBCH')},
+     {id:'flipkart', p:74999, sh:0, buyUrl:fk('/apple-iphone-15-black-128-gb/p/itm6ac6485515ae4')},
+     {id:'apple',    p:79900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-iphone/iphone-15'},
+   ]},
+  {id:2, name:'Samsung Galaxy S24 Ultra 256GB — Titanium Black', brand:'Samsung', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=400&q=80',
+   rating:4.8, rv:9410, hot:true,
+   desc:'200MP camera, S Pen, 6.8" QHD+ AMOLED, Snapdragon 8 Gen 3.',
+   stores:[
+     {id:'amazon',   p:109999, sh:0, buyUrl:amzn('B0CMDRCZBX')},
+     {id:'flipkart', p:112999, sh:0, buyUrl:fk('/samsung-galaxy-s24-ultra-5g-titanium-black-256-gb/p/itm7bc777cb43c2a')},
+     {id:'samsung',  p:114999, sh:0, buyUrl:'https://www.samsung.com/in/smartphones/galaxy-s24-ultra/'},
+     {id:'bestbuy',  p:99999,  sh:0, buyUrl:'https://www.bestbuy.com/site/searchpage.jsp?st=galaxy+s24+ultra'},
+   ]},
+  {id:3, name:'Sony WH-1000XM5 Wireless Noise-Cancelling Headphones', brand:'Sony', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=80',
+   rating:4.8, rv:34200, hot:true,
+   desc:'Industry-leading ANC, 30hr battery, multipoint connection, Speak-to-Chat.',
+   stores:[
+     {id:'amazon',   p:24990, sh:0, buyUrl:amzn('B09XS7JWHH')},
+     {id:'flipkart', p:26990, sh:0, buyUrl:fk('/sony-wh-1000xm5-bluetooth-headset/p/itmf7a28d8f96e2d')},
+     {id:'bestbuy',  p:28999, sh:0, buyUrl:'https://www.bestbuy.com/site/sony-wh1000xm5/6505728.p'},
+     {id:'walmart',  p:27200, sh:0, buyUrl:'https://www.walmart.com/search?q=sony+wh1000xm5'},
+     {id:'costco',   p:26400, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=wh1000xm5'},
+   ]},
+  {id:4, name:'Apple MacBook Air M3 13-inch 8GB 256GB — Midnight', brand:'Apple', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&q=80',
+   rating:4.9, rv:22100,
+   desc:'M3 chip, 18hr battery, fanless design, Liquid Retina display, MagSafe.',
+   stores:[
+     {id:'amazon',   p:114900, sh:0, buyUrl:amzn('B0CX23V2ZK')},
+     {id:'flipkart', p:119900, sh:0, buyUrl:fk('/apple-macbook-air-m3-8-gb-256-gb-ssd/p/itm526f6aa0d96e0')},
+     {id:'apple',    p:114900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-mac/macbook-air/13-inch'},
+     {id:'costco',   p:111900, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=macbook+air+m3'},
+   ]},
+  {id:5, name:'Samsung 65" QLED 4K Smart TV Q60D', brand:'Samsung', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1593359677879-a4bb92f829e1?w=400&q=80',
+   rating:4.6, rv:6320, hot:true,
+   desc:'Quantum Dot, 4K AI Upscaling, SmartThings, Motion Xcelerator 120.',
+   stores:[
+     {id:'amazon',   p:74990, sh:0, buyUrl:amzn('B0CJKPKQTL')},
+     {id:'flipkart', p:79990, sh:0, buyUrl:fk('/samsung-138-cm-55-inches-4k-ultra-hd-smart-qled-tv/p/itmf04bc8265bac7')},
+     {id:'samsung',  p:82900, sh:0, buyUrl:'https://www.samsung.com/in/televisions-audio-video/qled-tv/'},
+     {id:'walmart',  p:72000, sh:0, buyUrl:'https://www.walmart.com/search?q=samsung+65+qled+tv'},
+     {id:'bestbuy',  p:75000, sh:0, buyUrl:'https://www.bestbuy.com/site/searchpage.jsp?st=samsung+65+qled'},
+     {id:'costco',   p:70000, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=samsung+65+qled'},
+   ]},
+  {id:6, name:'Apple Watch Series 9 GPS 45mm — Midnight', brand:'Apple', cat:'electronics',
+   img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',
+   rating:4.7, rv:9870,
+   desc:'S9 chip, Double Tap gesture, always-on Retina display, crash detection.',
+   stores:[
+     {id:'amazon',   p:44900, sh:0, buyUrl:amzn('B0CHX9N594')},
+     {id:'flipkart', p:46900, sh:0, buyUrl:fk('/apple-watch-series-9-gps-45mm-midnight-aluminium/p/itm9cbf4478d3f23')},
+     {id:'apple',    p:44900, sh:0, buyUrl:'https://www.apple.com/in/shop/buy-watch/apple-watch'},
+     {id:'bestbuy',  p:43500, sh:0, buyUrl:'https://www.bestbuy.com/site/apple-watch-series-9/6373868.p'},
+   ]},
+  {id:7, name:'Nike Air Max 270 Running Shoes — Black/White', brand:'Nike', cat:'fashion',
+   img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',
+   rating:4.6, rv:8420,
+   desc:'Max Air heel unit, breathable mesh upper, foam midsole for all-day comfort.',
+   stores:[
+     {id:'amazon',   p:9995,  sh:0, buyUrl:amzn('B07D7J28W4')},
+     {id:'flipkart', p:10995, sh:0, buyUrl:fk('/nike-air-max-270-running-shoes/p/itmf7b2c6f0264b9')},
+     {id:'nike',     p:12495, sh:0, buyUrl:'https://www.nike.com/in/t/air-max-270-shoes/AH8050-002'},
+     {id:'walmart',  p:9500,  sh:0, buyUrl:'https://www.walmart.com/search?q=nike+air+max+270'},
+     {id:'zappos',   p:10800, sh:0, buyUrl:'https://www.zappos.com/product/nike-air-max-270'},
+   ]},
+  {id:8, name:"Levi's 511 Slim Fit Jeans — Dark Wash", brand:"Levi's", cat:'fashion',
+   img:'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&q=80',
+   rating:4.5, rv:15600,
+   desc:'Sits below waist, slim through hip and thigh, straight leg opening.',
+   stores:[
+     {id:'amazon',   p:2799, sh:0, buyUrl:amzn('B00EB7Y3GU')},
+     {id:'flipkart', p:3299, sh:0, buyUrl:fk('/levis-slim-men-dark-blue-jeans/p/itmezqm3yyxfthcz')},
+     {id:'walmart',  p:2700, sh:0, buyUrl:'https://www.walmart.com/search?q=levis+511+slim'},
+     {id:'target',   p:3100, sh:0, buyUrl:'https://www.target.com/s?searchTerm=levis+511'},
+   ]},
+  {id:9, name:'Dyson V15 Detect Absolute Cordless Vacuum', brand:'Dyson', cat:'home',
+   img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
+   rating:4.9, rv:7650,
+   desc:'Laser reveals hidden dust, auto-adjusts suction, 60-min run time, HEPA.',
+   stores:[
+     {id:'amazon',   p:49900, sh:0, buyUrl:amzn('B09NQKR1T1')},
+     {id:'flipkart', p:52990, sh:0, buyUrl:fk('/dyson-v15-detect-absolute-vacuum-cleaner/p/itm6ba6a3a7e7db4')},
+     {id:'walmart',  p:48500, sh:0, buyUrl:'https://www.walmart.com/search?q=dyson+v15+detect'},
+     {id:'bestbuy',  p:51000, sh:0, buyUrl:'https://www.bestbuy.com/site/dyson-v15/6501575.p'},
+     {id:'homedepo', p:50000, sh:0, buyUrl:'https://www.homedepot.com/s/dyson%20v15'},
+   ]},
+  {id:10, name:'Instant Pot Duo 7-in-1 Electric Pressure Cooker 6Qt', brand:'Instant Pot', cat:'home',
+   img:'https://images.unsplash.com/photo-1585515320310-259814833e62?w=400&q=80',
+   rating:4.7, rv:231000,
+   desc:'Pressure cooker, slow cooker, rice cooker, steamer, saute, yogurt, warmer.',
+   stores:[
+     {id:'amazon',   p:7495, sh:0, buyUrl:amzn('B00FLYWNYQ')},
+     {id:'walmart',  p:6800, sh:0, buyUrl:'https://www.walmart.com/search?q=instant+pot+duo+6qt'},
+     {id:'target',   p:7200, sh:0, buyUrl:'https://www.target.com/s?searchTerm=instant+pot+duo'},
+     {id:'costco',   p:6400, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=instant+pot'},
+   ]},
+  {id:11, name:'CeraVe Moisturising Cream 454g', brand:'CeraVe', cat:'beauty',
+   img:'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80',
+   rating:4.8, rv:89200,
+   desc:'3 ceramides, hyaluronic acid, fragrance-free, MVE delivery technology.',
+   stores:[
+     {id:'amazon',   p:599,  sh:0, buyUrl:amzn('B00TTD9BRC')},
+     {id:'flipkart', p:699,  sh:0, buyUrl:fk('/cerave-moisturising-cream/p/itm45aeed4e0f75c')},
+     {id:'walmart',  p:550,  sh:0, buyUrl:'https://www.walmart.com/search?q=cerave+moisturising+cream+454g'},
+     {id:'target',   p:620,  sh:0, buyUrl:'https://www.target.com/s?searchTerm=cerave+moisturizing+cream'},
+     {id:'costco',   p:520,  sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=cerave'},
+   ]},
+  {id:12, name:'Adidas Tiro 23 League Football Size 5', brand:'Adidas', cat:'sports',
+   img:'https://images.unsplash.com/photo-1614632537190-23e4e2898b88?w=400&q=80',
+   rating:4.6, rv:2100,
+   desc:'Machine-stitched, butyl bladder for air retention, polyurethane cover.',
+   stores:[
+     {id:'amazon',   p:1299, sh:0, buyUrl:amzn('B0CDLYFM56')},
+     {id:'flipkart', p:1499, sh:0, buyUrl:fk('/adidas-tiro-23-league-football/p/itm78d9cfeaf5621')},
+     {id:'walmart',  p:1200, sh:0, buyUrl:'https://www.walmart.com/search?q=adidas+tiro+football+size+5'},
+     {id:'ebay',     p:1150, sh:0, buyUrl:'https://www.ebay.com/sch/i.html?_nkw=adidas+tiro+league+football'},
+   ]},
+  {id:13, name:'Atomic Habits — James Clear (Paperback)', brand:'James Clear', cat:'books',
+   img:'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=80',
+   rating:4.9, rv:127000,
+   desc:'#1 NYT Bestseller. Tiny changes, remarkable results. 5M+ copies sold.',
+   stores:[
+     {id:'amazon',   p:399,  sh:0, buyUrl:amzn('1847941834')},
+     {id:'flipkart', p:419,  sh:0, buyUrl:fk('/atomic-habits-james-clear/p/itm0b462946c7fa85')},
+     {id:'walmart',  p:380,  sh:0, buyUrl:'https://www.walmart.com/search?q=atomic+habits+james+clear'},
+     {id:'target',   p:420,  sh:0, buyUrl:'https://www.target.com/s?searchTerm=atomic+habits'},
+   ]},
+  {id:14, name:'Tata Tea Gold Premium 1kg', brand:'Tata Tea', cat:'groceries',
+   img:'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&q=80',
+   rating:4.5, rv:3400,
+   desc:'Finest tea leaves, rich aroma, strong cup, freshness-sealed packaging.',
+   stores:[
+     {id:'amazon',   p:469, sh:0, buyUrl:amzn('B07DKXG7P6')},
+     {id:'flipkart', p:499, sh:0, buyUrl:fk('/tata-tea-gold-tea/p/itmf6b1a6d8a99dc')},
+     {id:'walmart',  p:450, sh:0, buyUrl:'https://www.walmart.com/search?q=tata+tea+gold'},
+     {id:'costco',   p:430, sh:0, buyUrl:'https://www.costco.com/catalogsearch/results?keyword=tata+tea'},
+   ]},
+  {id:15, name:'Michelin Pilot Sport 5 245/45R18 Tyre', brand:'Michelin', cat:'automotive',
+   img:'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=400&q=80',
+   rating:4.8, rv:5620,
+   desc:'Ultra-high performance summer tyre, enhanced wet grip, track and road.',
+   stores:[
+     {id:'amazon',   p:12999, sh:0,  buyUrl:amzn('B07BQ1X4TN')},
+     {id:'walmart',  p:12500, sh:0,  buyUrl:'https://www.walmart.com/search?q=michelin+pilot+sport+5+245+45+18'},
+     {id:'costco',   p:11999, sh:0,  buyUrl:'https://www.costco.com/catalogsearch/results?keyword=michelin+pilot+sport'},
+     {id:'ebay',     p:11500, sh:500,buyUrl:'https://www.ebay.com/sch/i.html?_nkw=michelin+pilot+sport+5+245+45r18'},
+     {id:'newegg',   p:12200, sh:0,  buyUrl:'https://www.newegg.com/p/pl?d=michelin+tyre'},
+   ]},
 ];
 
 let curCat='all',wishlist=Cookie.get('pricetag_wish')||[],recentViewed=[],viewMode='grid';
@@ -1455,12 +1620,14 @@ function openPM(id){
       <div class="pm-right">
         <div class="pm-cat">${p.cat}</div>
         <div class="pm-name">${p.name}</div>
+        ${p.brand?`<div style="font-size:12px;font-weight:600;color:var(--ink3);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px">${p.brand}</div>`:''}
         <div class="pm-rating"><span class="stars" style="font-size:13px">${starsHTML(p.rating)}</span><strong>${p.rating}</strong><span style="color:var(--ink3);font-size:12px">(${p.rv.toLocaleString()} reviews)</span></div>
+        ${p.desc?`<div style="font-size:12px;color:var(--ink2);line-height:1.7;margin-bottom:12px;padding:10px 13px;background:var(--paper2);border-radius:var(--rs);border:1px solid var(--border)">${p.desc}</div>`:''}
         <div class="pm-price">${fmt(best.p+best.sh)}</div>
         <div class="pm-incl">Best price incl. shipping · ${s.length} stores compared</div>
         <div class="pm-ai-trust">AI analysis: No fake discount detected. Current price is at or near the 90-day low. <strong>Recommended time to buy.</strong></div>
         <div class="pm-stores">
-          ${s.map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.id,col:'#888'};return`<div class="pm-srow${i===0?' best-s':''}"><div class="pm-sico" style="background:${d.col}">${d.n[0]}</div><div class="pm-sname">${d.n}<span class="pm-sship" style="color:${st.sh===0?'var(--grn)':'var(--ink3)'}">${st.sh===0?'Free ship':'+'+fmt(st.sh)+' shipping'}</span></div><div class="pm-sprice${i===0?' best-p':''}">${fmt(st.p+st.sh)}</div><button class="pm-sbuy" onclick="openCheckout(${p.id})">Buy</button></div>`;}).join('')}
+          ${s.map((st,i)=>{const d=STORES.find(x=>x.id===st.id)||{n:st.id,col:'#888'};return`<div class="pm-srow${i===0?' best-s':''}"><div class="pm-sico" style="background:${d.col}">${d.n[0]}</div><div class="pm-sname">${d.n}<span class="pm-sship" style="color:${st.sh===0?'var(--grn)':'var(--ink3)'}">${st.sh===0?'Free ship':'+'+fmt(st.sh)+' ship'}</span></div><div class="pm-sprice${i===0?' best-p':''}">${fmt(st.p+st.sh)}</div><button class="pm-sbuy" onclick="openCheckout(${p.id},'${st.id}')">Buy</button></div>`;}).join('')}
         </div>
         <div class="pm-rev-title">Customer reviews</div>
         <div class="pm-rev"><div class="pm-rev-h"><span class="pm-rev-name">Sarah M.</span><span class="stars" style="font-size:11px">★★★★★</span><span class="pm-rev-date">2 weeks ago</span></div><div class="pm-rev-txt">Excellent product. Found it here considerably cheaper. The AI price alert worked perfectly.</div></div>
@@ -1476,15 +1643,126 @@ function openPM(id){
 }
 function closePM(e){if(!e||e.target===document.getElementById('pmOv'))document.getElementById('pmOv').classList.remove('open');}
 
-// ── CHECKOUT / BOOKING ──
-function openCheckout(id){
+// ── CHECKOUT — AFFILIATE MODEL A + RAZORPAY MODEL B ──
+function openCheckout(id, storeId) {
   document.getElementById('pmOv').classList.remove('open');
-  const p=PRODS.find(x=>x.id===id);checkoutProduct=p;
-  const best=getBest(p);const sd=STORES.find(x=>x.id===best.id)||{n:best.id};
-  document.getElementById('coProduct').innerHTML=`<img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/><div class="co-pinfo"><div class="co-pname">${p.name}</div><div class="co-pstore">Booked via ${sd.n}</div></div><div class="co-pprice">${fmt(best.p+best.sh)}</div>`;
-  document.getElementById('coSummary').innerHTML=`<div class="co-sum-row"><span>Item price</span><span>${fmt(best.p)}</span></div><div class="co-sum-row"><span>Shipping</span><span>${best.sh===0?'Free':fmt(best.sh)}</span></div><div class="co-sum-row"><span>Retailer</span><span>${sd.n}</span></div><div class="co-sum-row total"><span>Total</span><span>${fmt(best.p+best.sh)}</span></div>`;
+  const p = PRODS.find(x => x.id === id);
+  checkoutProduct = p;
+  const stores = [...p.stores].sort((a,b) => (a.p+a.sh)-(b.p+b.sh));
+  const best = storeId ? stores.find(s=>s.id===storeId)||stores[0] : stores[0];
+  const sd = STORES.find(x => x.id === best.id) || {n: best.id, col:'#888'};
+
+  // If the store has a real affiliate URL — show the redirect dialog
+  if (best.buyUrl && !best.buyUrl.includes('YOUR_AMAZON_TAG') && !best.buyUrl.includes('YOUR_FK_AFFID')) {
+    showAffiliateCheckout(p, best, sd);
+  } else {
+    // Fallback: show internal checkout with Razorpay
+    showInternalCheckout(p, best, sd);
+  }
+}
+
+function showAffiliateCheckout(p, best, sd) {
+  // Build the affiliate redirect modal
+  document.getElementById('coProduct').innerHTML = `
+    <img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/>
+    <div class="co-pinfo">
+      <div class="co-pname">${p.name}</div>
+      <div class="co-pstore">Best price at ${sd.n}</div>
+    </div>
+    <div class="co-pprice">${fmt(best.p + best.sh)}</div>`;
+
+  // Override step 1 with affiliate redirect UI
+  document.getElementById('coStep1').innerHTML = `
+    <div style="text-align:center;padding:16px 0 24px">
+      <div style="font-size:42px;margin-bottom:12px">🛒</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:8px">Ready to buy?</div>
+      <div style="font-size:13px;color:var(--ink3);line-height:1.7;max-width:340px;margin:0 auto 20px">
+        We'll take you directly to <strong>${sd.n}</strong> to complete your purchase.<br>
+        You pay on their secure site — your usual account, saved addresses, and payment methods apply.
+      </div>
+      <div style="background:var(--paper2);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;text-align:left">
+        <div style="font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Order summary</div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>${p.name.substring(0,38)}…</span><span style="font-family:'IBM Plex Mono',monospace;font-weight:600">${fmt(best.p)}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--ink3);margin-bottom:10px"><span>Shipping</span><span style="color:${best.sh===0?'var(--grn)':'var(--ink)'}">${best.sh===0?'Free':fmt(best.sh)}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px;font-weight:700;border-top:1px solid var(--border);padding-top:10px"><span>Total</span><span style="font-family:'IBM Plex Mono',monospace;color:var(--gold)">${fmt(best.p+best.sh)}</span></div>
+      </div>
+      <button class="co-submit" onclick="doAffiliateRedirect('${best.buyUrl}',${p.id},'${sd.n}',${best.p+best.sh})" style="width:100%;margin-bottom:10px">
+        Continue to ${sd.n} →
+      </button>
+      <div style="font-size:11px;color:var(--ink4)">Opens in a new tab. Price Tag earns a small commission at no cost to you.</div>
+    </div>`;
+
   goStep(1);
   document.getElementById('coOv').classList.add('open');
+  // Hide step nav for affiliate flow
+  document.querySelector('.co-steps').style.display = 'none';
+}
+
+function doAffiliateRedirect(url, productId, storeName, totalPrice) {
+  // Record the order as "Redirected"
+  const p = PRODS.find(x => x.id === productId);
+  if (p) {
+    const o = {
+      id: Date.now().toString(36).toUpperCase().slice(-6),
+      name: p.name, img: p.img,
+      store: storeName,
+      price: fmt(totalPrice),
+      date: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}),
+      status: 'Redirected to ' + storeName
+    };
+    userOrders.unshift(o);
+    Cookie.set('pricetag_orders', userOrders);
+  }
+  // Open the real store in a new tab
+  window.open(url, '_blank', 'noopener,noreferrer');
+  document.getElementById('coOv').classList.remove('open');
+  showToast(`Opening ${storeName}… good luck! 🛍️`);
+}
+
+function showInternalCheckout(p, best, sd) {
+  // Restore steps nav
+  document.querySelector('.co-steps').style.display = 'flex';
+  document.getElementById('coStep1').innerHTML = `
+    <div class="co-section-title">Delivery address</div>
+    <input class="co-field" placeholder="Full name" id="co-name" value="${userProfile.name||''}"/>
+    <input class="co-field" placeholder="Phone number" id="co-phone" value="${userProfile.phone||''}"/>
+    <input class="co-field" placeholder="Address line 1" id="co-addr1" value="${userAddresses[0]?.line1||''}"/>
+    <input class="co-field" placeholder="Address line 2 (optional)" id="co-addr2"/>
+    <div class="co-row">
+      <input class="co-field" placeholder="City" value="${userAddresses[0]?.city||''}"/>
+      <input class="co-field" placeholder="PIN / ZIP" value="${userAddresses[0]?.pin||''}"/>
+    </div>
+    <input class="co-field" placeholder="State / Region" style="margin-top:8px" value="${userAddresses[0]?.state||''}"/>
+    <button class="co-submit" style="margin-top:16px" onclick="proceedToPayment()">Continue to payment</button>`;
+
+  document.getElementById('coProduct').innerHTML = `
+    <img src="${p.img}" style="width:56px;height:56px;object-fit:cover;border-radius:var(--rs)" onerror="this.style.display='none'"/>
+    <div class="co-pinfo"><div class="co-pname">${p.name}</div><div class="co-pstore">Booked via ${sd.n}</div></div>
+    <div class="co-pprice">${fmt(best.p+best.sh)}</div>`;
+
+  document.getElementById('coSummary').innerHTML = `
+    <div class="co-sum-row"><span>Item price</span><span>${fmt(best.p)}</span></div>
+    <div class="co-sum-row"><span>Shipping</span><span>${best.sh===0?'Free':fmt(best.sh)}</span></div>
+    <div class="co-sum-row"><span>Retailer</span><span>${sd.n}</span></div>
+    <div class="co-sum-row total"><span>Total</span><span>${fmt(best.p+best.sh)}</span></div>`;
+
+  goStep(1);
+  document.getElementById('coOv').classList.add('open');
+}
+
+function proceedToPayment() {
+  // Launch Razorpay before confirming
+  if (!checkoutProduct) return;
+  const best = getBest(checkoutProduct);
+  const totalInr = Math.round((best.p + best.sh) * (curC === 'IN' ? 1 : 83.1)); // always charge in INR via Razorpay
+  doRazorpayCheckout({
+    amount: totalInr * 100, // paise
+    currency: 'INR',
+    description: checkoutProduct.name.substring(0, 50),
+    onSuccess: () => {
+      goStep(3);
+    }
+  });
 }
 function goStep(n){
   coStep=n;
@@ -1494,7 +1772,7 @@ function goStep(n){
     el.classList.toggle('on',i===n);el.classList.toggle('done',i<n);
   });
   if(n===3){
-    showToast('Order placed! Track your shipment below.');
+    showToast('Order confirmed! 🎉');
     if(checkoutProduct){
       const best=getBest(checkoutProduct);
       const sd=STORES.find(x=>x.id===best.id)||{n:best.id};
