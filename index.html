@@ -801,7 +801,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
     <div style="flex:1">
       <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:2px">OWNER SETUP — 3 steps to go fully live</div>
       <div style="font-size:11px;color:rgba(255,255,255,.5);line-height:1.6">
-        <strong style="color:rgba(255,255,255,.75)">Step 1 — Amazon Affiliate:</strong> Sign up at affiliate-program.amazon.in → get your tag (e.g. pricetag-21) → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">YOUR_AMAZON_TAG</code> in the JS &nbsp;|&nbsp;
+        <strong style="color:#27AE60">✓ Step 1 — Amazon Affiliate: ACTIVE (pricetag03-21)</strong> &nbsp;|&nbsp;
         <strong style="color:rgba(255,255,255,.75)">Step 2 — Flipkart:</strong> affiliate.flipkart.com → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">YOUR_FK_AFFID</code> &nbsp;|&nbsp;
         <strong style="color:rgba(255,255,255,.75)">Step 3 — Razorpay:</strong> razorpay.com → Settings → API Keys → replace <code style="background:rgba(255,255,255,.1);padding:1px 5px;border-radius:3px">rzp_test_YOUR_KEY_HERE</code>
       </div>
@@ -1324,7 +1324,7 @@ let selS=new Set(STORES.map(s=>s.id));
 // REAL PRODUCTS — Affiliate links to live stores
 // Fill in AMZN_TAG and FK_AFFID below with your IDs
 // ─────────────────────────────────────────────
-const AMZN_TAG = 'YOUR_AMAZON_TAG';   // e.g. 'pricetag-21' from affiliate-program.amazon.in
+const AMZN_TAG = 'pricetag03-21';   // e.g. 'pricetag-21' from affiliate-program.amazon.in
 const FK_AFFID  = 'YOUR_FK_AFFID';    // from affiliate.flipkart.com
 function amzn(asin){ return `https://www.amazon.in/dp/${asin}?tag=${AMZN_TAG}&linkCode=ll1`; }
 function fk(path){ return `https://www.flipkart.com${path}&affid=${FK_AFFID}`; }
@@ -1653,7 +1653,7 @@ function openCheckout(id, storeId) {
   const sd = STORES.find(x => x.id === best.id) || {n: best.id, col:'#888'};
 
   // If the store has a real affiliate URL — show the redirect dialog
-  if (best.buyUrl && !best.buyUrl.includes('YOUR_AMAZON_TAG') && !best.buyUrl.includes('YOUR_FK_AFFID')) {
+  if (best.buyUrl && !best.buyUrl.includes('pricetag03-21') && !best.buyUrl.includes('YOUR_FK_AFFID')) {
     showAffiliateCheckout(p, best, sd);
   } else {
     // Fallback: show internal checkout with Razorpay
