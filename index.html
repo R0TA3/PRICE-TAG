@@ -1066,9 +1066,10 @@ function amznLink(name){
 }
 
 // ── BUILD CORRECT BUY URL ──
-// FIX: Amazon links use affiliate tag; other stores use their real link or Google search fallback
+// Build correct buy URL — always lands on a real page, never Google
 function buildBuyUrl(storeName, productName, rawLink){
   const sn = (storeName||'').toLowerCase();
+  // Always use your Amazon affiliate link for Amazon
   if(sn.includes('amazon')){
     return 'https://www.amazon.in/s?k='+encodeURIComponent(productName)+'&tag='+AMZN_TAG;
   }
@@ -1076,7 +1077,7 @@ function buildBuyUrl(storeName, productName, rawLink){
     return 'https://www.flipkart.com/search?q='+encodeURIComponent(productName);
   }
   if(sn.includes('myntra')){
-    return 'https://www.myntra.com/'+encodeURIComponent(productName);
+    return 'https://www.myntra.com/search?q='+encodeURIComponent(productName);
   }
   if(sn.includes('croma')){
     return 'https://www.croma.com/searchB?q='+encodeURIComponent(productName);
@@ -1084,11 +1085,21 @@ function buildBuyUrl(storeName, productName, rawLink){
   if(sn.includes('jiomart')){
     return 'https://www.jiomart.com/search/'+encodeURIComponent(productName);
   }
-  // For any other store: use raw link if it looks valid, otherwise Google search
-  if(rawLink && rawLink.startsWith('http') && rawLink.length > 20 && !rawLink.includes('vijaysales')){
+  if(sn.includes('ajio')){
+    return 'https://www.ajio.com/search/?text='+encodeURIComponent(productName);
+  }
+  if(sn.includes('meesho')){
+    return 'https://www.meesho.com/search?q='+encodeURIComponent(productName);
+  }
+  if(sn.includes('nykaa')){
+    return 'https://www.nykaa.com/search/result/?q='+encodeURIComponent(productName);
+  }
+  // For any other store: use raw link if valid (not vijaysales, not too short)
+  if(rawLink && rawLink.startsWith('http') && rawLink.length > 25 && !rawLink.includes('vijaysales')){
     return rawLink;
   }
-  return 'https://www.google.com/search?q='+encodeURIComponent(productName+' buy online');
+  // DEFAULT FALLBACK: Amazon affiliate search — you earn commission even on unknown stores!
+  return 'https://www.amazon.in/s?k='+encodeURIComponent(productName)+'&tag='+AMZN_TAG;
 }
 
 // ── PRODUCTS DATA ──
