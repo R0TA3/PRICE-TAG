@@ -1140,7 +1140,7 @@ const CAT_QUERIES={
   electronics:['best smartphones India 2025','laptops under 60000 India','wireless earphones best','smartwatch India deals'],
   fashion:['Nike Adidas shoes India','premium mens fashion India','womens branded clothing India'],
   groceries:['organic food products India best brand','premium beverages India'],
-  home:['home appliances India best price','kitchen appliances premium India'],
+  home:['Dyson vacuum cleaner India','Prestige kitchen appliances India','Philips home appliances India'],
   beauty:['skincare face cream India top brand','hair care premium India'],
   sports:['cricket bat premium India','fitness equipment India gym'],
   books:['bestselling books India 2025','self help books premium'],
@@ -1543,7 +1543,7 @@ function openLivePM(idx){
 }
 
 function closePM(e){if(!e||e.target===document.getElementById('pmOv'))document.getElementById('pmOv').classList.remove('open');}
-function liveRedirect(url,store){if(!url||url==='#'){showToast('Direct link not available');return;}window.open(url,'_blank','noopener,noreferrer');showToast(`Opening ${store}… 🛍️`);}
+function liveRedirect(url,store){if(!url||url==='#'||url.includes('vijaysales.com')||url.length<20){showToast('Direct link not available');return;}window.open(url,'_blank','noopener,noreferrer');showToast(`Opening ${store}… 🛍️`);}
 
 // ── CART ──
 function addToCart(id){
