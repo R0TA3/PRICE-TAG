@@ -1261,7 +1261,7 @@ function renderLiveProds(results){
     const storeId=guessStoreId(r.store);
     const sd=STORES.find(x=>x.id===storeId)||{n:r.store,col:'#'+(Math.abs(hashCode(r.store))%0xFFFFFF).toString(16).padStart(6,'0')};
     const nm=sd.n||r.store;
-    const buyUrl=r.link||r.googleUrl||`https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
+    const buyUrl=(r.store.toLowerCase().includes('amazon'))?`https://www.google.com/search?q=${encodeURIComponent(r.name)}+buy+online`;
     const total=r.price+(r.shipping||0);
     const qty=cardQtys[`live_${idx}`]||1;
     const inW=wishlist.some(w=>w.liveIdx===idx);
@@ -1470,7 +1470,7 @@ function openLivePM(idx){
   const storeId=guessStoreId(r.store);
   const storeData=STORES.find(x=>x.id===storeId)||{n:r.store,col:'#888'};
   const nm=storeData.n||r.store;
-  const buyUrl=r.link||r.googleUrl||'#';
+  const buyUrl=(r.store.toLowerCase().includes('amazon'))?'#';
   const total=r.price+(r.shipping||0);
   const alertEmail=Cookie.get('pricetag_alert_email')||'';
   let _pmQty=cardQtys[`live_${idx}`]||1;
