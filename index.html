@@ -1055,7 +1055,7 @@ const Cookie={
 };
 
 // ── CURRENCIES ──
-const CC={IN:{c:'INR',s:'₹',r:83.1},US:{c:'USD',s:'$',r:1},GB:{c:'GBP',s:'£',r:.79},EU:{c:'EUR',s:'€',r:.92},AU:{c:'AUD',s:'A$',r:1.52},CA:{c:'CAD',s:'C$',r:1.36},JP:{c:'JPY',s:'¥',r:149},AE:{c:'AED',s:'د.إ',r:3.67},SG:{c:'SGD',s:'S$',r:1.34},KR:{c:'KRW',s:'₩',r:1330},MY:{c:'MYR',s:'RM',r:4.72},SA:{c:'SAR',s:'﷼',r:3.75},PK:{c:'PKR',s:'₨',r:278},BD:{c:'BDT',s:'৳',r:109}};
+const CC={IN:{c:'INR',s:'₹',r:1},US:{c:'USD',s:'$',r:1},GB:{c:'GBP',s:'£',r:.79},EU:{c:'EUR',s:'€',r:.92},AU:{c:'AUD',s:'A$',r:1.52},CA:{c:'CAD',s:'C$',r:1.36},JP:{c:'JPY',s:'¥',r:149},AE:{c:'AED',s:'د.إ',r:3.67},SG:{c:'SGD',s:'S$',r:1.34},KR:{c:'KRW',s:'₩',r:1330},MY:{c:'MYR',s:'RM',r:4.72},SA:{c:'SAR',s:'﷼',r:3.75},PK:{c:'PKR',s:'₨',r:278},BD:{c:'BDT',s:'৳',r:109}};
 const CK=Object.keys(CC);
 let curC=Cookie.get('pricetag_country')||'IN',cIdx=CK.indexOf(curC);
 const fmt=usd=>{const c=CC[curC];const v=usd*c.r;return v>=1000?c.s+Math.round(v).toLocaleString():c.s+v.toFixed(2);};
