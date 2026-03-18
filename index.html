@@ -1411,7 +1411,7 @@ input[type=range]{width:100%;accent-color:var(--gold);}
 // ══════════════════════════════════════════════════════
 
 // ▼ Paste your Vercel URL here after deploying the backend
-const BACKEND_URL = 'YOUR_VERCEL_URL_HERE';
+const BACKEND_URL = 'https://pricetag-backend.vercel.app';
 // e.g. 'https://pricetag-backend.vercel.app'
 
 const priceCache = {};
@@ -1419,7 +1419,7 @@ const priceCache = {};
 async function fetchLivePrices(product) {
   const cacheKey = `${product.id}_${curC}`;
   if (priceCache[cacheKey]) return priceCache[cacheKey];
-  if (!BACKEND_URL || BACKEND_URL === 'YOUR_VERCEL_URL_HERE') return product.stores;
+  if (!BACKEND_URL || BACKEND_URL === 'https://pricetag-backend.vercel.app') return product.stores;
   try {
     const query = encodeURIComponent(product.name);
     const amznStore = product.stores.find(s => s.id === 'amazon');
@@ -1806,7 +1806,7 @@ async function renderProds(cat) {
   document.getElementById('pgrid').className = viewMode==='list' ? 'list-view' : '';
 
   // If backend not configured — fall back to hardcoded products
-  if (!BACKEND_URL || BACKEND_URL === 'YOUR_VERCEL_URL_HERE') {
+  if (!BACKEND_URL || BACKEND_URL === 'https://pricetag-backend.vercel.app') {
     setTimeout(() => {
       const list = cat==='all' ? PRODS : PRODS.filter(p=>p.cat===cat);
       document.getElementById('pgrid').innerHTML = list.length
@@ -2831,4 +2831,5 @@ autoLoginCheck();
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </body>
 </html>
+
 
